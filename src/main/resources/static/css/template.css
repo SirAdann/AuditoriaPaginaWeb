@@ -79,7 +79,7 @@ h4 {
 }
 
 .btn-secondary{
-	background: linear-gradient(#BA9D3F, #816E06);
+	background: linear-gradient(#00723F, rgb(0, 121, 52));
 	
 	
 }
@@ -783,7 +783,7 @@ td>a:hover{
 }
 
 .formulario {
-	margin: 3rem 6rem;
+	margin: 3rem 24rem;
 }
 
 @media (max-width: 991px) {
@@ -933,4 +933,7 @@ ol.espacio li{
   display: none;
 }
 
+.contenido{
+	margin: 40px;
+}
 

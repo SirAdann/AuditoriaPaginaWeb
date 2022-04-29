@@ -35,18 +35,15 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quiénes Somos</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Auditoría Interna</a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropdownMenuLink">
-                        	<li class="dropdown-item"><a href="mision-y-vision">Misión y Visión</a></li>
-                            <li class="dropdown-item"><a href="patronos">Patronos</a></li>
-                            <li class="dropdown-item"><a href="organigrama">Organigrama</a></li>
-                            <li class="dropdown-item"><a href="atribuciones">Atribuciones</a></li>
-                            <li class="dropdown-item"><a href="politica-de-calidad">Política de Calidad</a></li>
-                            <li class="dropdown-item"><a href="informacion-curricular">Información Curricular</a></li>
-                            <li class="dropdown-item"><a href="manual-de-organizacion">Manual de Organización</a></li>
-                            <li class="dropdown-item"><a href="codigo-etica-y-consulta">Código de Ética y Conducta</a></li>
+                        	<li class="dropdown-item"><a th:href="@{/auditoria/facultades}">Facultades</a></li>
+                            <li class="dropdown-item"><a th:href="@{/auditoria/departamentos}">Departamentos</a></li>
+                            <li class="dropdown-item"><a th:href="@{/auditoria/organigrama}">Organigrama</a></li>
+  
                         </ul>
                     </li>
+                    <!--  
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catálogo de servicios</a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropdownMenuLink">
@@ -97,6 +94,7 @@
                             <li class="dropdown-item"><a href="http://www.uabc.mx/planeacion/fondos_extraordinarios.htm" target="_blank">Fondos Extraordinarios (Informe)</a></li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dependencias</a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropdownMenuLink">
@@ -142,7 +140,11 @@
                             <li class="dropdown-item"><a href="reglas-de-operacion-pfce">Reglas de Operación PFCE "Etiquetas"</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="comentarios">Comentarios</a></li>
+                    
+                 -->
+                	<li class="nav-item"><a class="nav-link" th:href="@{/cursos/listado}">Cursos</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" th:href="@{/comentarios/formulario}">Comentarios</a></li>
                      
                     
                     

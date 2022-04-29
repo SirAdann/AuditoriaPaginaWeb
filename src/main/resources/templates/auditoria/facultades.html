@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>UABC - Patronato Universitario UABC</title>
+	<link rel="shortcut icon" href="..static/images/escudo-uabc-favicon.png" type="image/x-icon" th:href="@{/images/escudo-uabc-favicon.png}">
+	<link href="../../static/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+	<link href="../../static/css/template.css" rel="stylesheet" th:href="@{/css/template.css}"/>
+</head>
+<body>
+	<div class="container-fluid rp">
+		<!--  Header -->
+	    <header th:insert="fragments/header :: navbar"> </header>
+		
+		<!-- Contenido Principal -->
+        <div class="main container-fluid">
+        <!-- Todo el contenido principal se coloca aquí -->
+        
+        	<h1 class="titulo-seccion bold text-center">Facultades Auditoría Interna</h1>
+        	<div class="contenido">
+				<p>Auditoría Interna es la dependencia encargada de supervisar el manejo de fondos y valores, procedimientos y operaciones contables de la Universidad, así como de llevar a cabo, en colaboración con la Coordinación de Planeación y Desarrollo Institucional, la revisión del cumplimiento de los procedimientos administrativos y sus estándares de calidad. Su titular será designado por el Patronato.</p>
+	
+				<p>El Auditor Interno titular a la fecha es el <span class="bold">C.P.C. y Mtro. José María Armendáriz Palomares</span></p>
+	
+				<p class="bold">Art. 132 al 134 Estatuto General de la UABC</p>
+				<p>ARTÍCULO 134 Son funciones del auditor interno:</p>
+				
+				<ol class="roman text-justify">
+					<li>Auditar el manejo del patrimonio de la Universidad, debiendo informar directa y periódicamente al presidente del Patronato y al rector;</li>
+					<li>Auditar los procedimientos contables, así como el registro de todas las operaciones financieras y presupuestales de la Universidad;</li>
+					<li>Vigilar la ejecución del presupuesto aprobado;</li>
+					<li>Realizar auditorías periódicas o especiales a las diferentes dependencias administrativas y unidades académicas, informando al presidente del Patronato y al Rector sobre el resultado de éstas;</li>
+					<li>Verificar y controlar en forma sistemática que las operaciones se realicen con apego a los instructivos, contratos, legislación y políticas de la Universidad;</li>
+					<li>Vigilar que se dé cumplimiento a las disposiciones fiscales vigentes que afecten a la institución como causante o retenedor;</li>
+					<li>Verificar que el pago de remuneraciones al personal de la Universidad se ajuste a las categorias y tabuladores autorizados;</li>
+					<li>Intervenir en la recepción de las nuevas obras e instalaciones que se incorporen al patrimonio de la Universidad;</li>
+					<li>Intervenir en los casos que se cambie la situación de los bienes inmuebles o de activo fijo del patrimonio universitario;</li>
+					<li>Intervenir para procurar la debida observancia de la normatividad aplicable, en los casos y eventos que le sean requeridos, por parte de las autoridades universitarias;</li>
+					<li>Supervisar el funcionamiento de los departamentos a su cargo;</li>
+					<li>Proponer y administrar el presupuesto que se le asigne;</li>
+					<li>Vigilar el uso y la conservación de las edificaciones e instalaciones de la dependencia a su cargo, así como llevar un control de las mismas;</li>
+					<li>Controlar el uso del mobiliario, material y equipo asignado a su dependencia, para el desempeño de sus labores;</li>
+					<li>Cumplir con las normas y procedimientos que establezca el Patronato, así como realizar la toma del inventario físico para efectos de control de bienes patrimoniales a su cargo, y</li>
+					<li>Realizar todas aquellas actividades que se deriven de la naturaleza de su cargo, le confieran los ordenamientos universitarios o le sean encomendadas expresamente por el presidente del Patronato, rector o tesorero.</li>
+				</ol>
+			
+				<p>Para el cumplimiento de sus funciones el Auditor Interno se apoya con un Departamento de Auditoría en cada uno de los tres Campus de la UABC.</p>
+			</div>
+        <!-- Fin del contenido principal -->
+        <div class="actualizacion bold"></div>
+        </div>
+        
+		<!-- Footer -->
+		<div th:insert="fragments/footer :: footer"></div>
+ 	</div>
+ 	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+	<script src="../static/js/template.js" th:src="@{/js/template.js}"></script>
+<!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>
