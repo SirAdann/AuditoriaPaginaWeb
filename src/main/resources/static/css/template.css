@@ -359,6 +359,7 @@ p {
 	}
 }
 
+
 .saludo {
 	margin: 3rem 0;
 }
@@ -545,199 +546,6 @@ td>a:hover{
 .btn-trimestre {
 	font-size: 1rem;
 	line-height: 0;
-}
-
-.listado-puestos {
-    display: none;
-}
-
-.listado-puestos-mostrar {
-    display: block;
-}
-
-.listado-procedimientos {
-    display: none;
-}
-
-.listado-procedimientos-mostrar {
-    display: block;
-}
-
-.listado-formatos {
-    display: none;
-}
-
-.listado-formatos-mostrar {
-    display: block;
-}
-
-.listado-fraccion1 {
-    display: none;
-}
-
-.listado-fraccion1-mostrar {
-    display: block;
-}
-.listado-fraccion2 {
-    display: none;
-}
-
-.listado-fraccion2-mostrar {
-    display: block;
-}
-.listado-fraccion3 {
-    display: none;
-}
-
-.listado-fraccion3-mostrar {
-    display: block;
-}
-.listado-fraccion6 {
-    display: none;
-}
-
-.listado-fraccion6-mostrar {
-    display: block;
-}
-.listado-fraccion9 {
-    display: none;
-}
-
-.listado-fraccion9-mostrar {
-    display: block;
-}
-.listado-fraccion12 {
-    display: none;
-}
-
-.listado-fraccion12-mostrar {
-    display: block;
-}
-.listado-fraccion17 {
-    display: none;
-}
-
-.listado-fraccion17-mostrar {
-    display: block;
-}
-
-.listado-fraccion18 {
-    display: none;
-}
-
-.listado-fraccion18-mostrar {
-    display: block;
-}
-
-.listado-fraccion20 {
-    display: none;
-}
-
-.listado-fraccion20-mostrar {
-    display: block;
-}
-
-.listado-fraccion21 {
-    display: none;
-}
-
-.listado-fraccion21-mostrar {
-    display: block;
-}
-
-.listado-fraccion22 {
-    display: none;
-}
-
-.listado-fraccion22-mostrar {
-    display: block;
-}
-
-.listado-fraccion24 {
-    display: none;
-}
-
-.listado-fraccion24-mostrar {
-    display: block;
-}
-
-.listado-fraccion25 {
-    display: none;
-}
-
-.listado-fraccion25-mostrar {
-    display: block;
-}
-
-
-.listado-fraccion29 {
-    display: none;
-}
-
-.listado-fraccion29-mostrar {
-    display: block;
-}
-.listado-fraccion31 {
-    display: none;
-}
-
-.listado-fraccion31-mostrar {
-    display: block;
-}
-
-.listado-fraccion33 {
-    display: none;
-}
-
-.listado-fraccion33-mostrar {
-    display: block;
-}
-
-.listado-fraccion34 {
-    display: none;
-}
-
-.listado-fraccion34-mostrar {
-    display: block;
-}
-
-.listado-fraccion43 {
-    display: none;
-}
-
-.listado-fraccion43-mostrar {
-    display: block;
-}
-
-.listado-fraccion44 {
-    display: none;
-}
-
-.listado-fraccion44-mostrar {
-    display: block;
-}
-
-.listado-presupuestoA {
-    display: none;
-}
-
-.listado-presupuestoA-mostrar {
-    display: block;
-}
-.listado-presupuestoB {
-    display: none;
-}
-
-.listado-presupuestoB-mostrar {
-    display: block;
-}
-
-.listado-presupuestoC {
-    display: none;
-}
-
-.listado-presupuestoC-mostrar {
-    display: block;
 }
 
 .tabla-primer-trimestre {
@@ -936,4 +744,22 @@ ol.espacio li{
 .contenido{
 	margin: 40px;
 }
+
+.p-inline{
+	display: inline
+}
+
+.link-gris {
+    display: block;
+    text-decoration: none;
+    color: rgb(85, 85, 85);
+    line-height: 1.5rem;
+}
+.link-gris:hover {
+    display: block;
+    text-decoration: none;
+    color: black;
+    line-height: 1.5rem;
+}
+
 

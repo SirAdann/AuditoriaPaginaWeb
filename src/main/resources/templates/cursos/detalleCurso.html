@@ -32,10 +32,23 @@
               <h4 class="card-header"> <strong th:text="${curso.nombre}"></strong></h4>              
               <div class="card-body">
                 <h5 class="card-title"><strong>Fecha: </strong> <span th:text="${curso.fecha}"></span></h5>
-                <h6 class="card-title"><strong>Modalidad: </strong> <span th:text="${curso.presentador}"></span></h6>                
-                <h6 class="card-title"><strong>Plataforma: </strong><span th:text="${curso.plataforma}"></span></h6>
-                <h6 class="card-title"><strong>Liga: </strong><span th:text="${curso.liga}"></span></h6>
                 
+                <h6 class="card-title"><strong>Presentador: </strong> <span th:text="${curso.presentador}"></span></h6>    
+                <span th:if="${curso.modalidad==1}"> 
+                <h6 class="card-title"><strong>Modalidad: </strong> <span>Online</span></h6> 
+                         <h6 class="card-title"><strong>Plataforma: </strong><span th:text="${curso.plataforma}"></span></h6>
+                <h6 class="card-title"><strong>Liga: </strong><a class="link-gris" th:href="@{curso.liga}"><p th:text="${curso.liga}"></p></a></h6>    
+              	</span>
+              	<span th:unless="${curso.modalidad==1}"> 
+                <h6 class="card-title"><strong>Modalidad: </strong> <span>Presencial</span></h6>  
+                <h6 class="card-title"><strong>Lugar: </strong> <span>Paraninfo Universitario</span></h6>  
+                   
+              	</span>
+                <span th:if="${curso.modalidad==1}">            
+       
+                </span>
+                <span th:unless="${curso.modalidad==1}"> 
+                </span>
                 <p th:text ="${curso.descripcion}"class="card-text"></p>
                 <div class="card bg-light mb-3" >
                   <div class="card-body">
@@ -43,10 +56,14 @@
                 <p th:text ="${curso.descripcion}"class="card-text"></p>
                   </div>
                 </div>   
-                <a class="btn btn-success float-right" href="#" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Registrarse</a>                            
+                
+                <span th:if="${curso.estatus==1}">
+                <a class="btn btn-success float-right" th:href="@{/cursos/registro/{id} (id=${curso.id}) }" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Registrarse</a>                            
+              	</span>
+              	 <span th:unless="${curso.estatus==1}">
               	<a class="btn btn-secondary float-right" href="#" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Descargar presentación</a>  
               	<a class="btn btn-primary float-right" href="#" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Descargar video de curso</a>                            
-              	                          
+              	</span>            
               	
               </div>
             </div>  

@@ -28,7 +28,7 @@ public class CursosServiceImpl implements ICursosService {
 			curso1.setModalidad(1);
 			curso1.setPlataforma("Blackboard");
 			curso1.setLiga("https://us.bbcollab.com/guest/9104f932688440889a653985437552db");
-			curso1.setEstatus(1);
+			curso1.setEstatus(2);
 			curso1.setImagen("declaracion.jpg");
 
 			Curso curso2 = new Curso();
@@ -38,7 +38,7 @@ public class CursosServiceImpl implements ICursosService {
 					"En este curso se hablara sobre temas referentes a la Ética y Valores dentro de un Ambiente Laboral");
 			curso2.setFecha(sdf.parse("08-08-2022"));
 			curso2.setPresentador("Daniela Castellanos");
-			curso2.setModalidad(1);
+			curso2.setModalidad(2);
 			curso2.setPlataforma("Blackboard");
 			curso2.setLiga("https://us.bbcollab.com/guest/957585444447589444734398543789hgo");
 			curso2.setEstatus(1);

@@ -33,12 +33,24 @@ public class CursosController {
 	@GetMapping("/view/{id}")
 	public String verDetalle(@PathVariable("id") int idCurso, Model model) {		
 		Curso curso = serviceCursos.buscarPorId(idCurso);	
-		System.out.println("Vacante: " + curso);
+		System.out.println("Curso: " + curso);
 		model.addAttribute("curso", curso);
 		
 		// Buscar los detalles de la vacante en la BD...		
 		return "cursos/detalleCurso";
 	}
+	
+	@GetMapping("/registro/{id}")
+	public String nuevoRegistro(@PathVariable("id") int idCurso, Model model) {		
+		Curso curso = serviceCursos.buscarPorId(idCurso);	
+		System.out.println("Curso: " + curso);
+		model.addAttribute("curso", curso);
+		
+		// Buscar los detalles de la vacante en la BD...		
+		return "cursos/registroCurso";
+	}
+	
+	
 	
 
 }
