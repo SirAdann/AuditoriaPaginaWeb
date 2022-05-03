@@ -744,6 +744,12 @@ ol.espacio li{
 .contenido{
 	margin: 40px;
 }
+.contenido-formulario{
+	margin-top: 40px;
+	margin-left: 150px;
+	margin-right: 150px;
+	margin-bottom: 40px;
+}
 
 .p-inline{
 	display: inline
@@ -761,5 +767,6 @@ ol.espacio li{
     color: black;
     line-height: 1.5rem;
 }
+
 
 

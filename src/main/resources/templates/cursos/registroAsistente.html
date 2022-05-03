@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="..static/images/escudo-uabc-favicon.png"
+	type="image/x-icon" th:href="@{/images/escudo-uabc-favicon.png}">
+<link href="../static/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}" />
+<link href="../static/css/template.css" rel="stylesheet"
+	th:href="@{/css/template.css}" />
+<title>Auditoría Interna</title>
+<style>
+/* Make the image fully responsive */
+.carousel-inner img {
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<header th:insert="fragments/header :: navbar"> </header>
+	</div>
+
+	<div class="main container-fluid">
+		<h1 class="titulo-seccion bold text-center">
+			Registro al curso: <span th:text="${curso.nombre}"></span>
+		</h1>
+
+		<div class="contenido-formulario">
+
+			<form th:action="@{/cursos/saveAsistente}" method=POST th:object="${asistente}" enctype="multipart/form-data" >
+			<div th:if="${#fields.hasErrors('*')}" class='alert alert-danger'
+							role='alert'>
+							Por favor corrija los siguientes errores:
+							<ul>
+								<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+							</ul>
+						</div>
+				<div class="form-row">
+					<div class="form-group col-md-4">
+						<label for="inputEmail4">Apellido Paterno</label> <input type="text"
+							class="form-control" th:field="*{apellidoPaterno}" id="apellidoPaterno" name="apellidoPaterno" placeholder="Apellido Paterno" required>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputPassword4">Apellido Materno</label> <input
+							type="text" class="form-control"th:field="*{apellidoMaterno}" id="apellidoMaterno" name="apellidoMaterno"
+							placeholder="Apellido Materno" required>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputPassword4">Nombre(s)</label> <input
+							type="text" class="form-control" th:field="*{nombre}" id="nombre" name="nombre"
+							placeholder="Nombre(s)" required>
+					</div>
+				
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-4">
+						<label for="inputPassword4">Número de empleado</label> <input
+							type="number" class="form-control" th:field="*{numEmpleado}" id="numEmpleado" name="numEmpleado"
+							placeholder="Número de empleado" required>
+					</div>
+				<div class="form-group col-md-4">
+						<label for="inputPassword4">Correo Eléctronico</label> <input
+							type="email" class="form-control" th:field="*{correo}" id="correo" name="correo"
+							placeholder="ejemplo@uabc.edu.mx" required>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputPassword4">Número de contacto</label> <input
+							type="number" class="form-control" th:field="*{numContacto}" id="numContacto" name="numContacto"
+							placeholder="Numeró personal o extensión">
+					</div>
+				</div>	
+					 <button type="submit" class="btn btn-primary float-right">Registrar</button>
+				
+			</form>
+				</div>
+			
+
+		</div>
+
+
+
+
+	</div>
+
+
+	<div th:insert="fragments/footer :: footer"></div>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script src="../static/js/bootstrap.min.js"
+		th:src="@{/js/bootstrap.min.js}"></script>
+	<script src="../static/js/template.js" th:src="@{/js/template.js}"></script>
+
+	<!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>

@@ -28,7 +28,7 @@ public class CursosServiceImpl implements ICursosService {
 			curso1.setModalidad(1);
 			curso1.setPlataforma("Blackboard");
 			curso1.setLiga("https://us.bbcollab.com/guest/9104f932688440889a653985437552db");
-			curso1.setEstatus(2);
+			curso1.setEstatus(1);
 			curso1.setImagen("declaracion.jpg");
 
 			Curso curso2 = new Curso();
