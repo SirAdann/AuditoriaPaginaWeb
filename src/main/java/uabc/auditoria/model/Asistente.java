@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Asistente {
 
-	private int id;
+	private Integer id;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
 	private String nombre;
@@ -12,10 +12,10 @@ public class Asistente {
 	private String correo;
 	private String numContacto;
 	private Curso curso;
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getApellidoPaterno() {
@@ -54,19 +54,19 @@ public class Asistente {
 	public void setNumContacto(String numContacto) {
 		this.numContacto = numContacto;
 	}
-	public Curso getIdCurso() {
+	public Curso getCurso() {
 		return curso;
 	}
-	public void setIdCurso(Curso idCurso) {
-		this.curso = idCurso;
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 	@Override
 	public String toString() {
 		return "Asistente [id=" + id + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno
 				+ ", nombre=" + nombre + ", numEmpleado=" + numEmpleado + ", correo=" + correo + ", numContacto="
-				+ numContacto + ", idCurso=" + curso + "]";
+				+ numContacto + ", curso=" + curso + "]";
 	}
-	
+
 
 
 	

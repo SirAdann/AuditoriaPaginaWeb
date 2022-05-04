@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,9 @@ public class CursosServiceImpl implements ICursosService {
 	private List<Curso> lista = null;
 
 	public CursosServiceImpl() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.US);
+		
+		
 		lista = new LinkedList<Curso>();
 		try {
 			Curso curso1 = new Curso();
@@ -23,7 +26,7 @@ public class CursosServiceImpl implements ICursosService {
 			curso1.setNombre("Declaración Patrimonial");
 			curso1.setDescripcion(
 					"En este curso se presentará información referente a la presentación de su declaración patrimonial y el sistema informático Sudep");
-			curso1.setFecha(sdf.parse("05-05-2022"));
+			curso1.setFecha(sdf.parse("05-04-2021 14:52"));
 			curso1.setPresentador("Juan Luis Martinéz Jacobo");
 			curso1.setModalidad(1);
 			curso1.setPlataforma("Blackboard");
@@ -36,7 +39,7 @@ public class CursosServiceImpl implements ICursosService {
 			curso2.setNombre("Ética y Valores");
 			curso2.setDescripcion(
 					"En este curso se hablara sobre temas referentes a la Ética y Valores dentro de un Ambiente Laboral");
-			curso2.setFecha(sdf.parse("08-08-2022"));
+			curso2.setFecha(sdf.parse("05-04-2021 14:52"));
 			curso2.setPresentador("Daniela Castellanos");
 			curso2.setModalidad(2);
 			curso2.setPlataforma("Blackboard");
@@ -55,7 +58,6 @@ public class CursosServiceImpl implements ICursosService {
 
 	@Override
 	public List<Curso> buscarTodos() {
-		// TODO Auto-generated method stub
 		return lista;
 	}
 

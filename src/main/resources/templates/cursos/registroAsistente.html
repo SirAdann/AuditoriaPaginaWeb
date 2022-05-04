@@ -29,12 +29,17 @@
 
 	<div class="main container-fluid">
 		<h1 class="titulo-seccion bold text-center">
-			Registro al curso: <span th:text="${curso.nombre}"></span>
+			Registro al curso: <span th:text="${cursoNombre.nombre}"></span>
 		</h1>
 
 		<div class="contenido-formulario">
-
-			<form th:action="@{/cursos/saveAsistente}" method=POST th:object="${asistente}" enctype="multipart/form-data" >
+<div class="card">
+	<h5 class="card-header">
+					<strong>Datos del Asistente</strong>
+				</h5>
+								<div class="card-body">
+				
+			<form th:action="@{/cursos/saveAsistente/{id} (id=${cursoNombre.id})}" method=POST th:object="${asistente}" enctype="multipart/form-data" >
 			<div th:if="${#fields.hasErrors('*')}" class='alert alert-danger'
 							role='alert'>
 							Por favor corrija los siguientes errores:
@@ -75,10 +80,22 @@
 							type="number" class="form-control" th:field="*{numContacto}" id="numContacto" name="numContacto"
 							placeholder="Numeró personal o extensión">
 					</div>
+					
+					
 				</div>	
+				<div class="form-row">
+				<div class="form-group col-md-4">
+				<select class="form-control" th:field=*{curso.id} hidden="true">
+										<option th:each="curso : ${cursos}" th:value="${cursoNombre.id}" th:text=${curso.nombre}>Ventas</option>
+				
+									</select>
+				</div>
+				</div>
 					 <button type="submit" class="btn btn-primary float-right">Registrar</button>
 				
 			</form>
+			</div>
+			</div>
 				</div>
 			
 

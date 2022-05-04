@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+  <link rel="stylesheet" th:href="@{//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css}">
+  <link rel="stylesheet" th:href="@{/resources/demos/style.css}">
+  
+<link rel="shortcut icon" href="..static/images/escudo-uabc-favicon.png"
+	type="image/x-icon" th:href="@{/images/escudo-uabc-favicon.png}">
+<link href="../static/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}" />
+<link href="../static/css/template.css" rel="stylesheet" th:href="@{/css/template.css}" />
+<title>Auditoría Interna</title>
+<style>
+/* Make the image fully responsive */
+.carousel-inner img {
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<header th:insert="fragments/header :: navbar"> </header>
+	</div>
+
+	<div class="main container-fluid">
+	<!--  <h1 class="titulo-seccion bold text-center">
+		Registro 
+		</h1>-->	
+
+		<div class="contenido-formulario">
+	<div class="card">
+				<h5 class="card-header">
+					<strong>Datos del curso</strong>
+				</h5>
+				<div class="card-body">
+					<form th:action="@{/admin/cursos/save}" method=POST th:object="${curso}" enctype="multipart/form-data">
+					<!-- 	<div th:if="${#fields.hasErrors('*')}" class='alert alert-danger'
+							role='alert'>
+							Por favor corrija los siguientes errores:
+							<ul>
+								<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+							</ul>
+						</div> -->
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="nombre">Nombre</label> <input type="text"
+										class="form-control" th:field="*{nombre}" id="nombre" name="nombre"
+										placeholder="Titulo del curso"
+										required="required">
+								</div>
+							</div>
+							<div class="col-md-9">
+								<div class="form-group">
+									<label for="descripcion">Descripción</label> <input type="text"
+										class="form-control" id="descripcion" th:field="*{descripcion}" name="descripcion"
+										placeholder="Breve descripcion del curso"
+										required="required">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="fecha">Fecha del curso</label> <input
+										type="text" class="form-control" th:field="*{fecha}" name="fecha" id="fecha"
+										placeholder="Fecha de publicacion" required="required">
+								</div>
+							</div>
+						<div class="col-md-3">
+								<div class="form-group">
+									<label for="presentador">Presentador(es)</label> <input
+										type="text" class="form-control" th:field="*{presentador}" name="presentador" id="presentador"
+										placeholder="Nombre del presentador o presentadores" required="required">
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="estatus">Estatus</label> <select
+										class="form-control" th:field="*{estatus}" name="estatus" id="estatus">
+										<option value="1">Abierto</option>
+										<option value="2">Cerrado</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="modalidad">Modalidad</label> <select
+										class="form-control" th:field="*{modalidad}" name="modalidad" id="modalidad">
+										<option value="1">Online</option>
+										<option value="2">Presencial</option>
+									</select>
+									
+								</div>
+							</div>
+						
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="plataforma">Plataforma</label> <input
+										type="text" class="form-control" th:field="*{plataforma}" name="plataforma" id="plataforma"
+										placeholder="Plataforma donde se brindará el curso" required="required">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="archivoImagen">Imagen</label> <input type="file"
+										class="form-control-file"  name="archivoImagen"
+										id="archivoImagen">
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-md-9">
+								<div class="form-group">
+									<label for="detalles"><strong>Detalles</strong></label>
+									<textarea class="form-control" th:field="*{detalles}" name="detalles" id="detalles"
+										rows="7"></textarea>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<label for="imagen">Imagen/Logo</label> <img
+									class="rounded mx-auto d-block"
+									th:src="@{/images/construccion-logo.png}"
+									alt="Generic placeholder image" width="200" height="200">
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+				</div>
+			
+
+		</div>
+
+
+
+
+	</div>
+
+
+	<div th:insert="fragments/footer :: footer"></div>
+
+
+	 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script src="../static/js/bootstrap.min.js"
+		th:src="@{/js/bootstrap.min.js}"></script>
+	<script src="../static/js/template.js" th:src="@{/js/template.js}"></script>
+		<script th:src="@{/tinymce/tinymce.min.js}"></script>
+		
+	<script>
+		$(function() {
+			$("#fecha").datepicker({
+				dateFormat : 'dd-mm-yy'
+			});
+		});
+
+		
+		tinymce.init({
+		    selector: '#detalles',
+		    plugins: "textcolor, table lists code",
+		    toolbar: " undo redo | bold italic | alignleft aligncenter alignright alignjustify \n\
+		              | bullist numlist outdent indent | forecolor backcolor table code"
+		});
+		
+		 
+	</script>
+
+	<!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>
