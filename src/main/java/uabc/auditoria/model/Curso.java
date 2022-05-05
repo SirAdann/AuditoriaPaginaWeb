@@ -14,7 +14,7 @@ public class Curso {
 	private String lugar;
 	private String liga;
 	private Integer estatus;
-	private Integer detalle;
+	private String detalle;
 	private String imagen="no-image.png";
 	public Integer getId() {
 		return id;
@@ -76,11 +76,11 @@ public class Curso {
 	public void setEstatus(Integer estatus) {
 		this.estatus = estatus;
 	}
-	public Integer getDetalles() {
+	public String getDetalle() {
 		return detalle;
 	}
-	public void setDetalles(Integer detalles) {
-		this.detalle = detalles;
+	public void setDetalle(String detalle) {
+		this.detalle = detalle;
 	}
 	public String getImagen() {
 		return imagen;
@@ -92,10 +92,10 @@ public class Curso {
 	public String toString() {
 		return "Curso [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
 				+ ", presentador=" + presentador + ", modalidad=" + modalidad + ", plataforma=" + plataforma
-				+ ", lugar=" + lugar + ", liga=" + liga + ", estatus=" + estatus + ", detalles=" + detalle
-				+ ", imagen=" + imagen + "]";
+				+ ", lugar=" + lugar + ", liga=" + liga + ", estatus=" + estatus + ", detalle=" + detalle + ", imagen="
+				+ imagen + "]";
 	}
-	
+
 
 
 }

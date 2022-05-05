@@ -38,6 +38,7 @@
 					<strong>Datos del Asistente</strong>
 				</h5>
 								<div class="card-body">
+			<div th:if="${msg != null}" class='alert alert-success' th:text="${msg}" role='alert'></div>
 				
 			<form th:action="@{/cursos/saveAsistente/{id} (id=${cursoNombre.id})}" method=POST th:object="${asistente}" enctype="multipart/form-data" >
 			<div th:if="${#fields.hasErrors('*')}" class='alert alert-danger'

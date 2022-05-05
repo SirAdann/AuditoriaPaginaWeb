@@ -1,14 +1,27 @@
 var puesto = document.getElementById("puestos");
 var modalidad = document.getElementById("modalidad");
 
+	
 
 if(modalidad != null) {
 	modalidad.addEventListener("click", function() {
 	    if (modalidad.value ==1) {
-       alert('yes');
+        document.getElementById("plat").setAttribute("class", "mostrar");
+        document.getElementById("plat").setAttribute("required","required");
+        document.getElementById("lug").setAttribute("class", "ocultar");
+        document.getElementById("lug").removeAttribute("required");
+
+
 	        setTimeout(() => {}, 300);
 	    } else {
-	        alert('No');
+	    document.getElementById("plat").setAttribute("class", "ocultar");
+	    document.getElementById("lug").setAttribute("class", "mostrar");
+        document.getElementById("plat").removeAttribute("required");
+        document.getElementById("lug").setAttribute("required", "required");
+
+	      
+
+
 	    }
 	});
 }

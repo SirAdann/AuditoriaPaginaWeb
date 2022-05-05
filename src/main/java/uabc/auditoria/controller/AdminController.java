@@ -1,12 +1,18 @@
 package uabc.auditoria.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,7 +49,7 @@ public class AdminController {
 	public String crearCurso(Curso curso) {
 		return "admin/formCurso";}
 	
-	@PostMapping("/save")
+	@PostMapping("/cursos/save")
 	public String guardarCurso(Curso curso, BindingResult result, RedirectAttributes attributes, @RequestParam("archivoImagen") MultipartFile multiPart) {
 		if (result.hasErrors()) {
 			for (ObjectError error: result.getAllErrors()){
@@ -62,10 +68,17 @@ public class AdminController {
 			curso.setImagen(nombreImagen);
 			
 			}}
-		//serviceVacantes.guardar(vacante);
+		serviceCursos.guardar(curso);
 		attributes.addFlashAttribute("msg", "Registro Guardado");		
 		System.out.println("Curso: " + curso);		
-		return "redirect:/vacantes/index";   
+		return "redirect:/admin/cursos/listaCursos";   
+	}
+	
+	
+	@InitBinder
+	public void initBinder(WebDataBinder webDataBinder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	}
 	
 }

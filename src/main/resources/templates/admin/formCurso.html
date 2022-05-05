@@ -41,13 +41,13 @@
 				</h5>
 				<div class="card-body">
 					<form th:action="@{/admin/cursos/save}" method=POST th:object="${curso}" enctype="multipart/form-data">
-					<!-- 	<div th:if="${#fields.hasErrors('*')}" class='alert alert-danger'
+						<div th:if="${#fields.hasErrors('*')}" class='alert alert-danger'
 							role='alert'>
 							Por favor corrija los siguientes errores:
 							<ul>
 								<li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
 							</ul>
-						</div> -->
+						</div>
 						<div class="row">
 							<div class="col-md-3">
 								<div class="form-group">
@@ -74,7 +74,7 @@
 										placeholder="Fecha de publicacion" required="required">
 								</div>
 							</div>
-						<div class="col-md-3">
+						<div class="col-md-6">
 								<div class="form-group">
 									<label for="presentador">Presentador(es)</label> <input
 										type="text" class="form-control" th:field="*{presentador}" name="presentador" id="presentador"
@@ -88,10 +88,15 @@
 										class="form-control" th:field="*{estatus}" name="estatus" id="estatus">
 										<option value="1">Abierto</option>
 										<option value="2">Cerrado</option>
+										<option value="3">No disponible</option>
 									</select>
 								</div>
 							</div>
-							<div class="col-md-3">
+						
+						
+						</div>
+						<div class="row">
+						<div class="col-md-4">
 								<div class="form-group">
 									<label for="modalidad">Modalidad</label> <select
 										class="form-control" th:field="*{modalidad}" name="modalidad" id="modalidad">
@@ -101,17 +106,21 @@
 									
 								</div>
 							</div>
-						
-						</div>
-						<div class="row">
-							<div class="col-md-3">
+							<div class="col-md-4" id="plat">
 								<div class="form-group">
 									<label for="plataforma">Plataforma</label> <input
 										type="text" class="form-control" th:field="*{plataforma}" name="plataforma" id="plataforma"
-										placeholder="Plataforma donde se brindará el curso" required="required">
+										placeholder="Plataforma donde se brindará el curso" >
 								</div>
 							</div>
-							<div class="col-md-3">
+								<div class="col-md-4" id="lug">
+								<div class="form-group">
+									<label for="plataforma">Lugar</label> <input
+										type="text" class="form-control" th:field="*{lugar}" name="lugar" id="lugar"
+										placeholder="Lugar donde se brindará el curso" >
+								</div>
+							</div>
+							<div class="col-md-4">
 								<div class="form-group">
 									<label for="archivoImagen">Imagen</label> <input type="file"
 										class="form-control-file"  name="archivoImagen"
@@ -123,8 +132,8 @@
 						<div class="row">
 							<div class="col-md-9">
 								<div class="form-group">
-									<label for="detalles"><strong>Detalles</strong></label>
-									<textarea class="form-control" th:field="*{detalles}" name="detalles" id="detalles"
+									<label for="detalle"><strong>Detalles</strong></label>
+									<textarea class="form-control" th:field="*{detalle}" name="detalle" id="detalle"
 										rows="7"></textarea>
 								</div>
 							</div>
@@ -172,10 +181,15 @@
 				dateFormat : 'dd-mm-yy'
 			});
 		});
+		
+		$( document ).ready(function() {
+			document.getElementById("plat").setAttribute("class", "mostrar");
+		    document.getElementById("lug").setAttribute("class", "ocultar");
+		});
 
 		
 		tinymce.init({
-		    selector: '#detalles',
+		    selector: '#detalle',
 		    plugins: "textcolor, table lists code",
 		    toolbar: " undo redo | bold italic | alignleft aligncenter alignright alignjustify \n\
 		              | bullist numlist outdent indent | forecolor backcolor table code"

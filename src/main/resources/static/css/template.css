@@ -14,6 +14,7 @@ body {
     color: rgb(85, 85, 85);
 }
 
+
 img {
     max-width: 100%;
 }
@@ -751,6 +752,7 @@ ol.espacio li{
 	margin-bottom: 40px;
 }
 
+
 .p-inline{
 	display: inline
 }
@@ -768,5 +770,35 @@ ol.espacio li{
     line-height: 1.5rem;
 }
 
+.ocultar {
+    display: none;
+            margin-left:15px;
+margin-right:15px;
+}
 
+.mostrar {
+    display: block;
+        margin-left:15px;
+        margin-right:15px;
+            
+}
+
+.bodydiv{
+	background-color: #F9F9F9;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.2;
+    color: rgb(85, 85, 85);
+    margin-top: 0px;
+	
+}
+
+.contenido-blanco{
+	margin-top: 20px;
+	margin-left: 200px;
+	margin-right: 200px;
+	margin-bottom: 40px;
+	background: white;
+	padding-top:20px;
+}
 

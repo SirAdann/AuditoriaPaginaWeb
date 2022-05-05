@@ -77,7 +77,7 @@ public class CursosController {
 
 	
 	
-	//attributes.addFlashAttribute("msg", "Registro Guardado");		
+	attributes.addFlashAttribute("msg", "Registro Guardado");		
 	System.out.println("Asistente: " + asistente);		
 	return "redirect:/cursos/createAsistente/"+idCurso;   
 }

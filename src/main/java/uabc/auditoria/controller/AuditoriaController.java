@@ -22,6 +22,12 @@ public class AuditoriaController {
 	public String MostrarOrganigrama(Model model) {
 		return"auditoria/organigrama";
 	}
+	
+	@GetMapping("/declaracion-patrimonial")
+	public String MostrarPaginaDeclaracion(Model model) {
+		return"auditoria/declaracion-patrimonial";
+	}
+
 
 
 }
