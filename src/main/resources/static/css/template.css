@@ -802,3 +802,12 @@ margin-right:15px;
 	padding-top:20px;
 }
 
+.texto-contenido-derecha{
+	text-align:right;
+	
+}
+
+.texto-contenido{
+	text-align:justify;
+}
+

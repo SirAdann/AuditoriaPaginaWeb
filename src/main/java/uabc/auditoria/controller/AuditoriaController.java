@@ -25,7 +25,7 @@ public class AuditoriaController {
 	
 	@GetMapping("/declaracion-patrimonial")
 	public String MostrarPaginaDeclaracion(Model model) {
-		return"auditoria/declaracion-patrimonial";
+		return"auditoria/declaracion-patrimonial2";
 	}
 
 

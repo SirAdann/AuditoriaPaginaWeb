@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="..static/images/escudo-uabc-favicon.png"
+	type="image/x-icon" th:href="@{/images/escudo-uabc-favicon.png}">
+<link href="../static/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}" />
+<link href="../static/css/template.css" rel="stylesheet"
+	th:href="@{/css/template.css}" />
+<title>Auditoría Interna</title>
+<style>
+/* Make the image fully responsive */
+.carousel-inner img {
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<header th:insert="fragments/header :: navbar"> </header>
+	</div>
+
+	<div class="main container-fluid bodydiv">
+
+		<br>
+		<div class="contenido-blanco">
+			<h1 class="titulo-seccion bold text-center">Declaración de
+				Situación Patrimonial y de Intereses de los Sujetos Obligados de
+				UABC</h1>
+
+
+			<div class="contenido">
+
+				<p class="texto-contenido">
+					Para ver quienes son los sujetos obligados y demás detalles del <a
+						href="http://sriagral.uabc.mx/Externos/AbogadoGeneral/Acuerdos/Patronato/07_AcuerdoPatronato_2021-03-22.pdf"
+						target="_blank" class="resaltado">Acuerdo mediante el cual se
+						regula la declaración de situación patrimonial y de intereses de
+						los funcionarios y servidores universitarios, y abroga el diverso
+						el diverso que regula el registro patrimonial de los funcionarios
+						empleados de la Universidad Autónoma de Baja California.</a>
+				</p>
+
+				<div class="card">
+					<h5 class="card-header">
+						<strong>Título</strong>
+					</h5>
+					<div class="card-body">
+						<p class="texto-contenido">Los plazos para la presentación de
+							la declaración de situación patrimonial serán los que a
+							continuación se mencionan:</p>
+
+						<ul class="espacio roman text-justify">
+							<li>Declaración de inicio de encargo, incluidas las de
+								ratificación y cambio de función: Dentro de los sesenta días
+								naturales siguientes a la toma de posesión;
+								<ul>
+									<li>(Cuando se ratifica a un funcionario no es necesario
+										enviar otra declaración ya que se cuenta con la anual que ya
+										elaboró, de igual manera procede en caso de los directores
+										provisionales y les dan nombramiento la Junta de Gobierno
+										posteriormente.</li>
+									<li>En el caso de cambio de área pero con la misma
+										obligación de presentar declaración patrimonial, es suficiente
+										que notifiquen a Auditoría Interna con un oficio dicho cambio
+										refiriendo que ya se presentó la declaración patrimonial en el
+										cargo anterior.)</li>
+
+								</ul>
+
+							</li>
+							<li>Declaración de conclusión de encargo: Dentro de los <span
+								class="bold">sesenta</span> días naturales siguientes a aquel en
+								que termine el encargo; Para efectos de este numeral, los
+								obligados que presenten declaración de inicio de encargo, por
+								virtud de un nuevo nombramiento o contrato, o bien, ante la
+								reelección, no estarán obligados a presentar declaración de
+								conclusión de encargo;
+							</li>
+							<li>Declaración anual de modificación patrimonial: <span
+								class="bold">Durante el mes de mayo de cada año.</span>
+
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="contenido">
+				<!--  <p class="bold">Enlace para ingresar al Sistema Universitario de
+					Declaración Patrimonial</p>-->
+				<div class="card">
+					<h5 class="card-header ">
+						<strong class="float-right">Enlace para ingresal al
+							Sistema Universitario de Declaración Patrimonial</strong>
+					</h5>
+					<div class="card-body ">
+						<div class="float-right">
+							<a href="https://sudep.uabc.mx/" target="_blank"
+								class="resaltado ">https://sudep.uabc.mx/</a>
+							<!-- <img th:src="@{/documentos/imagenes/enlaces/declara-net.png}"
+					alt="SUDEP" class="texto-contenido">-->
+							<img th:src="@{/images/enlaces/declara-net.png}" alt="SUDEP"
+								class="texto-contenido">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="contenido">
+				<div class="card">
+					<h5 class="card-header ">
+						<strong>Nota Importante para Declaración Patrimonial</strong>
+					</h5>
+					<div class="card-body ">
+						<!-- 	<p class="bold">Nota Importante para Declaración Patrimonial</p> -->
+
+						<p class="texto-contenido">Si usted realizó la Declaración
+							Patrimonial correspondiente al año anterior, solo requiere
+							actualizarla con la información del año que está declarando (año
+							inmediato anterior).</p>
+						<p class="texto-contenido">En caso de que esté realizando su
+							Declaración Patrimonial por primera vez en modalidad de
+							MODIFICACIÓN, se requiere que haga el llenado de sus bienes
+							inmuebles y muebles como si fuera su declaración inicial.</p>
+						<p class="texto-contenido">
+							Para cualquier duda con la utilización del programa favor de
+							contactar a Auditoría Interna de la UABC, <span class="bold">(Extensión
+								33801 y 33822).</span>
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="contenido">
+				<div class="card">
+					<h5 class="card-header">
+						<strong class="float-right">Recursos</strong>
+					</h5>
+					<div class="card-body">
+
+							<!--  	<p class="bold">Recursos</p> -->
+
+							<p class="texto-contenido-derecha">
+							En esta sección podrá usted
+								consultar diversa información para elaborar la Declaración
+								Patrimonial y de Intereses de Funcionarios que son señalados
+								como sujetos obligados de acuerdo a la Normatividad
+								Universitaria.</p>
+							<p class="texto-contenido"></p>
+
+							<ul>
+							<div class="float-right">
+								<li><a
+									th:href="@{/documentos/declaracion-patrimonial/DECLARACIÓN PATRIMONIAL EXPO 2022 final1.pdf}"
+									target="_blank" class="resaltado">Presentación Declaración
+										Patrimonial.</a></li>
+								<li><a
+									th:href="@{/documentos/declaracion-patrimonial/ABC DE LA DECLARACIÓN PATRIMONIAL actualizado 2022.pdf}"
+									target="_blank" class="resaltado">ABC de la Declaración
+										Patrimonial.</a></li>
+								<li><a
+									th:href="@{/documentos/declaracion-patrimonial/GUIA PARA LA DECLARACION PATRIMONIAL 2022 FINAL.pdf}"
+									target="_blank" class="resaltado">Guía para la Declaración
+										Patrimonial.</a></li>
+										</div>
+							</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</div>
+
+
+	<div th:insert="fragments/footer :: footer"></div>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script src="../static/js/bootstrap.min.js"
+		th:src="@{/js/bootstrap.min.js}"></script>
+	<script src="../static/js/template.js" th:src="@{/js/template.js}"></script>
+
+	<!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>
