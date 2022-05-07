@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="..static/images/escudo-uabc-favicon.png"
+	type="image/x-icon" th:href="@{/images/escudo-uabc-favicon.png}">
+<link href="../static/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.min.css}" />
+<link href="../static/css/template.css" rel="stylesheet"
+	th:href="@{/css/template.css}" />
+<title>Auditoría Interna</title>
+<style>
+/* Make the image fully responsive */
+.carousel-inner img {
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<header th:insert="fragments/header :: navbar"> </header>
+	</div>
+
+	<div class="main container-fluid bodydiv">
+
+		<br>
+		<div class="contenido-blanco">
+			<h1 class="titulo-seccion bold text-center">Proceso de Entrega-Recepción</h1>
+
+
+		<div class="contenido">
+				<p>El proceso de Entrega-Recepción, tiene por objeto dar cumplimiento al acto administrativo mediante el cual el funcionario universitario saliente entrega de forma ordenada, completa y oportuna al funcionario universitario entrante, todos los recursos materiales, humanos y financieros que correspondan y de conformidad con el Acuerdo que Regula la Rendición de Cuentas de las Dependencias Administrativas y Unidades Académicas de la Universidad Autónoma de Baja California, por Conclusión de Cargo o Conclusión de Periodo Rectoral.</p>
+				<p>En la presente sección se otorgarán las herramientas para cumplir con el proceso de Entrega-Recepción a la que están obligadas las Autoridades y los Funcionarios Universitarios.</p>
+				<p>Con la finalidad de facilitar el cumplimiento de lo estipulado en este proceso se incluye la normatividad aplicable, el enlace al Sistema Universitario de Entrega Recepción, y los formatos que se utilizarán en el Acta de Entrega Recepción.</p>
+	
+						<div class="card">
+					<h5 class="card-header">
+						<strong>Normatividad</strong>
+					</h5>
+					<div class="card-body">
+				<ul>
+					<li><a th:href="@{/documentos/entrega-recepcion/Acuerdo que regula la rendicion de cuentas.doc}" target="_blank" class="resaltado">Acuerdo que Regula la Rendición de Cuentas de las Dependencias Administrativas y Unidades Académicas de la Universidad Autónoma de Baja California, por Conclusión de Cargo o Conclusión de Periodo Rectoral.</a></li>
+					<li><a th:href="@{/documentos/entrega-recepcion/Lineamientos entrega-recepcion DEF LIC.doc}" target="_blank" class="resaltado">Lineamientos Generales.</a></li>
+					<li><a th:href="@{/documentos/entrega-recepcion/Manual de Procedimiento de Entrega-Recepcion.doc}" target="_blank" class="resaltado">Manual de Procedimiento de Entrega-Recepción.</a></li>
+				</ul>
+				</div>
+				</div>
+			</div>
+			
+			
+			<div class="contenido">
+			
+	<div class="card">
+					<h5 class="card-header">
+						<strong class="float-right">Formatos a utilizar
+</strong>
+					</h5>
+					<div class="card-body">	
+					
+				<ul >
+				<div class="float-right">
+					<li><a th:href="@{/documentos/entrega-recepcion/Anexos.rar}" target="_blank" class="resaltado">Formatos Acta Entrega Recepción.</a></li>
+				</div>
+				</ul>
+	
+			</div>
+			</div>
+			
+			
+			</div>
+			<div class="contenido">
+			<div class="card">
+					<h5 class="card-header">
+						<strong>Enlace para ingresar al Sistema Universitario de Entrega Recepción (SUER)
+</strong>
+					</h5>
+					<div class="card-body">	
+			
+				<a href="http://suer.uabc.mx/" target="_blank" class="resaltado">https://suer.uabc.mx/</a>
+	            <img th:src="@{/images/enlaces/suer-logo.png}" alt="SUER" class="texto-contenido">
+	            </div>
+	            </div>
+			</div>
+			
+			<div class="contenido">
+				<p>Cualquier duda sobre la normatividad aplicable o el llenado del acta y los formatos a utilizar, ponemos a disposición los números de contacto de Auditoría Interna de la UABC de cada campus.</p>
+
+				<table class="table table-hover">
+					<thead>
+					    <tr class="d-flex">
+					      <th class="col-sm-1 col-md-1 col-lg-1">CAMPUS</th>
+					      <th class="col-sm-2 col-md-2 col-lg-3">PUESTO</th>
+					      <th class="col-sm-2 col-md-2 col-lg-3">NOMBRE</th>
+					      <th class="col-sm-3 col-md-3 col-lg-2">TELÉFONO</th>
+					      <th class="col-sm-2 col-md-2 col-lg-1">EXT.</th>
+					      <th class="col-sm-2 col-md-2 col-lg-2">CORREO</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  	<tr class="d-flex">
+					  	  <th class="col-sm-1 col-md-1 col-lg-1">Mexicali</th>
+					      <td class="col-sm-1 col-md-1 col-lg-3">Jefe de Departamento de Seguimiento y Auditorías Especiales</th>
+					      <td class="col-sm-2 col-md-2 col-lg-3">Mtro. José Ortiz Bautista</td>
+					      <td class="col-sm-3 col-md-3 col-lg-2">686-551-8265</td>
+					      <td class="col-sm-2 col-md-2 col-lg-1">33820</td>
+					      <td class="col-sm-2 col-md-2 col-lg-2">jortizb@uabc.edu.mx</td>
+					    </tr>
+					    <tr class="d-flex">
+					      <th class="col-sm-1 col-md-1 col-lg-1">Mexicali</th>
+					      <td class="col-sm-1 col-md-1 col-lg-3">Jefa de Departamento de Auditoría Interna</th>
+					      <td class="col-sm-2 col-md-2 col-lg-3">Mtra. Claudia Mora Lara</td>
+					      <td class="col-sm-2 col-md-2 col-lg-2">686-551-8265</td>
+					      <td class="col-sm-3 col-md-3 col-lg-1">33810</td>
+					      <td class="col-sm-2 col-md-2 col-lg-2">claudiaml@uabc.edu.mx</td>
+					    </tr>
+					    <tr class="d-flex">
+					      <th class="col-sm-1 col-md-1 col-lg-1">Ensenada</th>
+					      <td class="col-sm-2 col-md-2 col-lg-3">Jefe de Departamento de Auditoría Interna</td>
+					      <td class="col-sm-2 col-md-2 col-lg-3">CP. Martha Athondo Valenzuela</td>
+					      <td class="col-sm-3 col-md-3 col-lg-2">646-152-8225</td>
+					      <td class="col-sm-2 col-md-2 col-lg-1">63800</td>
+					      <td class="col-sm-2 col-md-2 col-lg-2">martha@uabc.edu.mx</td>
+					    </tr>
+					    <tr class="d-flex">
+					      <th class="col-sm-1 col-md-1 col-lg-1">Tijuana</th>
+					      <td class="col-sm-2 col-md-2 col-lg-3">Jefe de Departamento de Auditoría Interna</td>
+					      <td class="col-sm-2 col-md-2 col-lg-3">CP. Jorge Luis Casas Robles</td>
+					      <td class="col-sm-3 col-md-3 col-lg-2">664-979-7547</td>
+					      <td class="col-sm-2 col-md-2 col-lg-1">53800</td>
+					      <td class="col-sm-2 col-md-2 col-lg-2">jorge@uabc.edu.mx</td>
+					    </tr>
+					</tbody>
+				</table>
+
+			</div>
+
+			
+
+		</div>
+
+
+
+
+	</div>
+
+
+	<div th:insert="fragments/footer :: footer"></div>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script src="../static/js/bootstrap.min.js"
+		th:src="@{/js/bootstrap.min.js}"></script>
+	<script src="../static/js/template.js" th:src="@{/js/template.js}"></script>
+
+	<!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>

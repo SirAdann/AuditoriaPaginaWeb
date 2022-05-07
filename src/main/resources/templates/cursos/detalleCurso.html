@@ -31,7 +31,7 @@
             <div class="card">
               <h4 class="card-header"> <strong th:text="${curso.nombre}"></strong></h4>              
               <div class="card-body">
-                <h5 class="card-title"><strong>Fecha: </strong> <span th:text="${curso.fecha}"></span></h5>
+                <h5 class="card-title"><strong>Fecha: </strong> <span th:text="${#dates.format(curso.fecha,'dd-MM-yyyy HH:mm')}"></span></h5>
                 
                 <h6 class="card-title"><strong>Presentador: </strong> <span th:text="${curso.presentador}"></span></h6>    
                 <span th:if="${curso.modalidad==1}"> 

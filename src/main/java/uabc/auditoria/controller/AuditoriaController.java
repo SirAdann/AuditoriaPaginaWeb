@@ -28,6 +28,11 @@ public class AuditoriaController {
 		return"auditoria/declaracion-patrimonial2";
 	}
 
+	@GetMapping("/entrega-recepcion")
+	public String MostrarPaginaEntregaRecep(Model model) {
+		return"auditoria/entrega-recepcion";
+	}
+
 
 
 }
