@@ -1,41 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="shortcut icon" href="..static/images/escudo-uabc-favicon.png"
-	type="image/x-icon" th:href="@{/images/escudo-uabc-favicon.png}">
-<link href="../static/css/bootstrap.min.css" rel="stylesheet"
-	th:href="@{/css/bootstrap.min.css}" />
-<link href="../static/css/template.css" rel="stylesheet"
-	th:href="@{/css/template.css}" />
-<title>Auditoría Interna</title>
-<style>
-/* Make the image fully responsive */
-.carousel-inner img {
-	width: 100%;
-	height: 100%;
-}
-</style>
-
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>UABC - Patronato Universitario UABC</title>
+	<link rel="shortcut icon" href="..static/images/escudo-uabc-favicon.png" type="image/x-icon" th:href="@{/images/escudo-uabc-favicon.png}">
+	<link href="../../static/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+	<link href="../../static/css/template.css" rel="stylesheet" th:href="@{/css/template.css}"/>
 </head>
 <body>
-	<div class="container-fluid">
-		<header th:insert="fragments/header :: navbar"> </header>
-	</div>
-
-	<div class="main container-fluid bodydiv">
-
-		<br>
-		<div class="contenido-blanco">
-			<h1 class="titulo-seccion bold text-center">Facultades Auditoría Interna</h1>
-
-
+	<div class="container-fluid rp">
+		<!--  Header -->
+	    <header th:insert="fragments/header :: navbar"> </header>
 		
-<div class="contenido">
+		<!-- Contenido Principal -->
+        <div class="main container-fluid">
+        <!-- Todo el contenido principal se coloca aquí -->
+        
+        	<h1 class="titulo-seccion bold text-center">Facultades Auditoría Interna</h1>
+        	<div class="contenido">
 				<p>Auditoría Interna es la dependencia encargada de supervisar el manejo de fondos y valores, procedimientos y operaciones contables de la Universidad, así como de llevar a cabo, en colaboración con la Coordinación de Planeación y Desarrollo Institucional, la revisión del cumplimiento de los procedimientos administrativos y sus estándares de calidad. Su titular será designado por el Patronato.</p>
 	
 				<p>El Auditor Interno titular a la fecha es el <span class="bold">C.P.C. y Mtro. José María Armendáriz Palomares</span></p>
@@ -64,35 +50,18 @@
 			
 				<p>Para el cumplimiento de sus funciones el Auditor Interno se apoya con un Departamento de Auditoría en cada uno de los tres Campus de la UABC.</p>
 			</div>
-			
-		
-
-			
-
-		</div>
-
-
-
-
-	</div>
-
-
-	<div th:insert="fragments/footer :: footer"></div>
-
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-		th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}"
-		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-		crossorigin="anonymous"></script>
-	<script src="../static/js/bootstrap.min.js"
-		th:src="@{/js/bootstrap.min.js}"></script>
+        <!-- Fin del contenido principal -->
+        <div class="actualizacion bold"></div>
+        </div>
+        
+		<!-- Footer -->
+		<div th:insert="fragments/footer :: footer"></div>
+ 	</div>
+ 	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
 	<script src="../static/js/template.js" th:src="@{/js/template.js}"></script>
-
-	<!-- Placed at the end of the document so the pages load faster -->
+<!-- Placed at the end of the document so the pages load faster -->
 </body>
 </html>
