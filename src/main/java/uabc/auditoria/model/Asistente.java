@@ -2,8 +2,17 @@ package uabc.auditoria.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+@Entity
+@Table(name="asistentes")
 public class Asistente {
 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
@@ -11,6 +20,9 @@ public class Asistente {
 	private String numEmpleado;
 	private String correo;
 	private String numContacto;
+	
+	@OneToOne
+	@JoinColumn(name="idCurso")
 	private Curso curso;
 	public Integer getId() {
 		return id;
