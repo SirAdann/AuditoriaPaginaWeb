@@ -2,6 +2,8 @@ package uabc.auditoria.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,8 +21,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import net.bytebuddy.asm.Advice.Return;
 import uabc.auditoria.Util.Utileria;
 import uabc.auditoria.model.Curso;
+import uabc.auditoria.model.Perfil;
+import uabc.auditoria.repository.PerfilesRepository;
 import uabc.auditoria.service.CursosServiceImpl;
 
 @Controller
@@ -32,6 +37,9 @@ public class AdminController {
 	
 	@Autowired
 	private	CursosServiceImpl serviceCursos;
+	
+	@Autowired
+	private PerfilesRepository repoPerfiles;
 	
 	@GetMapping("/index")
 	public String mostrarOpciones() {
@@ -73,6 +81,40 @@ public class AdminController {
 		System.out.println("Curso: " + curso);		
 		return "redirect:/admin/cursos/listaCursos";   
 	}
+	
+	@GetMapping("/cursos/listaPerfiles")
+	public String mostrarListadoPerfiles(Model model) {
+		model.addAttribute("cursos", serviceCursos.buscarTodos());
+		crearPerfiles();
+		System.out.println("Perfiles creados");
+		return "admin/listadoCursos";}
+	
+	private void crearPerfiles() {
+		
+		repoPerfiles.saveAll(getPerfilesAplicacion());
+		
+		
+	}
+	
+	private List <Perfil>getPerfilesAplicacion(){
+		List<Perfil> lista= new LinkedList<Perfil>();
+		Perfil per1= new Perfil();
+		per1.setPerfil("SUPERVISOR");
+		
+		Perfil per2= new Perfil();
+		per2.setPerfil("ADMINISTRADOR");
+		
+		Perfil per3= new Perfil();
+		per3.setPerfil("USUARIO");
+		
+		
+		lista.add(per1);
+		lista.add(per2);
+		lista.add(per3);
+		return lista;
+	}
+	
+	
 	
 	
 	@InitBinder

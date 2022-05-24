@@ -1,12 +1,19 @@
 package uabc.auditoria.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table(name="usuarios")
@@ -23,6 +30,12 @@ private String correo;
 private String password;
 private Integer estatus;
 private Date fechaRegistro;
+
+@ManyToMany(fetch = FetchType.EAGER)
+@JoinTable(name="usuariosperfiles", joinColumns = @JoinColumn(name="idUsuario"),inverseJoinColumns = @JoinColumn(name="idPerfil") )
+private List<Perfil> perfiles;
+
+
 public Integer getId() {
 	return id;
 }
@@ -78,7 +91,12 @@ public void setFechaRegistro(Date fechaRegistro) {
 	this.fechaRegistro = fechaRegistro;
 }
 
-
+public List<Perfil> getPerfiles() {
+	return perfiles;
+}
+public void setPerfiles(List<Perfil> perfiles) {
+	this.perfiles = perfiles;
+}
 
 
 }
