@@ -1,6 +1,7 @@
 package uabc.auditoria.model;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -35,6 +36,12 @@ private Date fechaRegistro;
 @JoinTable(name="usuariosperfiles", joinColumns = @JoinColumn(name="idUsuario"),inverseJoinColumns = @JoinColumn(name="idPerfil") )
 private List<Perfil> perfiles;
 
+public void agregar(Perfil tempperfil){
+	if(perfiles==null) {
+		perfiles= new LinkedList<Perfil>();
+	}
+	perfiles.add(tempperfil);
+}
 
 public Integer getId() {
 	return id;

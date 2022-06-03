@@ -25,7 +25,9 @@ import net.bytebuddy.asm.Advice.Return;
 import uabc.auditoria.Util.Utileria;
 import uabc.auditoria.model.Curso;
 import uabc.auditoria.model.Perfil;
+import uabc.auditoria.model.Usuario;
 import uabc.auditoria.repository.PerfilesRepository;
+import uabc.auditoria.repository.UsuariosRepository;
 import uabc.auditoria.service.CursosServiceImpl;
 
 @Controller
@@ -40,6 +42,10 @@ public class AdminController {
 	
 	@Autowired
 	private PerfilesRepository repoPerfiles;
+	
+	@Autowired
+	private UsuariosRepository repoUsuarios;
+	
 	
 	@GetMapping("/index")
 	public String mostrarOpciones() {
@@ -82,11 +88,20 @@ public class AdminController {
 		return "redirect:/admin/cursos/listaCursos";   
 	}
 	
-	@GetMapping("/cursos/listaPerfiles")
+	@GetMapping("/perfiles/listaPerfiles")
 	public String mostrarListadoPerfiles(Model model) {
 		model.addAttribute("cursos", serviceCursos.buscarTodos());
 		crearPerfiles();
 		System.out.println("Perfiles creados");
+		return "admin/listadoCursos";}
+	
+	
+	
+	@GetMapping("/usuarios/listaUsuarios")
+	public String mostrarListadoUsuarios(Model model) {
+		model.addAttribute("cursos", serviceCursos.buscarTodos());
+		crearUsuarioConPerfil();
+		System.out.println("Usuario creado");
 		return "admin/listadoCursos";}
 	
 	private void crearPerfiles() {
@@ -114,6 +129,28 @@ public class AdminController {
 		return lista;
 	}
 	
+	private void crearUsuarioConPerfil() {
+		Usuario user = new Usuario();
+		user.setNombre("Jesús Adán");
+		user.setApellidoPaterno("Gama");
+		user.setApellidoMaterno("Guzmán");
+		user.setCorreo("adan.gama@uabc.edu.mx");
+		user.setFechaRegistro(new Date());
+		user.setUsername("Agama");
+		user.setPassword("12345");
+		user.setEstatus(1);
+		
+		Perfil per1 =new Perfil();
+		per1.setId(2);
+		
+		Perfil per2 =new Perfil();
+		per2.setId(3);
+		
+		user.agregar(per1);
+		user.agregar(per2);
+		
+		repoUsuarios.save(user);
+	}
 	
 	
 	
