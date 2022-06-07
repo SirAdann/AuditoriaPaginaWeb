@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,6 +50,8 @@ public class AdminController {
 	
 	@GetMapping("/index")
 	public String mostrarOpciones() {
+		
+		buscarUsuariosPorEstatus();
 		return "admin/opciones";}
 	
 	
@@ -100,7 +103,7 @@ public class AdminController {
 	@GetMapping("/usuarios/listaUsuarios")
 	public String mostrarListadoUsuarios(Model model) {
 		model.addAttribute("cursos", serviceCursos.buscarTodos());
-		crearUsuarioConPerfil();
+		crearUsuarioConDosPerfiles();
 		System.out.println("Usuario creado");
 		return "admin/listadoCursos";}
 	
@@ -129,7 +132,7 @@ public class AdminController {
 		return lista;
 	}
 	
-	private void crearUsuarioConPerfil() {
+	private void crearUsuarioConDosPerfiles() {
 		Usuario user = new Usuario();
 		user.setNombre("Jesús Adán");
 		user.setApellidoPaterno("Gama");
@@ -141,10 +144,10 @@ public class AdminController {
 		user.setEstatus(1);
 		
 		Perfil per1 =new Perfil();
-		per1.setId(2);
+		per1.setIdperfil(2);
 		
 		Perfil per2 =new Perfil();
-		per2.setId(3);
+		per2.setIdperfil(3);
 		
 		user.agregar(per1);
 		user.agregar(per2);
@@ -152,8 +155,33 @@ public class AdminController {
 		repoUsuarios.save(user);
 	}
 	
-	
-	
+	public void buscarUsuario() {
+		Optional<Usuario> optional=repoUsuarios.findById(2);
+		
+		if(optional.isPresent()) {
+			Usuario u = optional.get();
+			System.out.println("Usuario "+ u.getNombre());
+			System.out.println("perfiles asignados");
+			
+			for (Perfil p : u.getPerfiles()) {
+			System.out.println(p.getPerfil());
+			
+			}
+		}
+	}
+	public void buscarUsuariosPorEstatus() {
+		List<Usuario> listausuarios=repoUsuarios.findByEstatus(1);
+		for (Usuario u: listausuarios) {
+			
+			System.out.println("Nombre "+u.getNombre() +" Usuario: "+u.getUsername());
+			for (Perfil p : u.getPerfiles()) {
+				System.out.println(p.getPerfil());
+				
+				}
+			
+		}
+		
+	}
 	@InitBinder
 	public void initBinder(WebDataBinder webDataBinder) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

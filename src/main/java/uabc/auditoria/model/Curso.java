@@ -13,7 +13,7 @@ public class Curso {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer idCurso;
 	private String nombre;
 	private String descripcion;
 	private Date fecha;
@@ -25,11 +25,12 @@ public class Curso {
 	private Integer estatus;
 	private String detalle;
 	private String imagen="no-image.png";
-	public Integer getId() {
-		return id;
+
+	public Integer getIdcurso() {
+		return idCurso;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdcurso(Integer idcurso) {
+		this.idCurso = idcurso;
 	}
 	public String getNombre() {
 		return nombre;
@@ -99,7 +100,7 @@ public class Curso {
 	}
 	@Override
 	public String toString() {
-		return "Curso [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
+		return "Curso [idCurso=" + idCurso + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
 				+ ", presentador=" + presentador + ", modalidad=" + modalidad + ", plataforma=" + plataforma
 				+ ", lugar=" + lugar + ", liga=" + liga + ", estatus=" + estatus + ", detalle=" + detalle + ", imagen="
 				+ imagen + "]";

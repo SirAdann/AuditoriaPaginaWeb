@@ -13,7 +13,7 @@ public class Asistente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer idAsistente;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
 	private String nombre;
@@ -25,10 +25,10 @@ public class Asistente {
 	@JoinColumn(name="idCurso")
 	private Curso curso;
 	public Integer getId() {
-		return id;
+		return idAsistente;
 	}
 	public void setId(Integer id) {
-		this.id = id;
+		this.idAsistente = id;
 	}
 	public String getApellidoPaterno() {
 		return apellidoPaterno;
@@ -74,7 +74,7 @@ public class Asistente {
 	}
 	@Override
 	public String toString() {
-		return "Asistente [id=" + id + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno
+		return "Asistente [id=" + idAsistente + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno
 				+ ", nombre=" + nombre + ", numEmpleado=" + numEmpleado + ", correo=" + correo + ", numContacto="
 				+ numContacto + ", curso=" + curso + "]";
 	}

@@ -22,7 +22,7 @@ public class Usuario {
 	
 @Id 
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer id;
+private Integer idUsuario;
 private String username;
 private String nombre;
 private String apellidoPaterno;
@@ -43,12 +43,17 @@ public void agregar(Perfil tempperfil){
 	perfiles.add(tempperfil);
 }
 
-public Integer getId() {
-	return id;
+
+public Integer getIdusuario() {
+	return idUsuario;
 }
-public void setId(Integer id) {
-	this.id = id;
+
+
+public void setIdusuario(Integer idusuario) {
+	this.idUsuario = idusuario;
 }
+
+
 public String getUsername() {
 	return username;
 }

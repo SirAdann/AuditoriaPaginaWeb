@@ -12,13 +12,14 @@ public class Perfil {
 	
 @Id 
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer id;
+private Integer idPerfil;
 private String perfil;
-public Integer getId() {
-	return id;
+
+public Integer getIdperfil() {
+	return idPerfil;
 }
-public void setId(Integer id) {
-	this.id = id;
+public void setIdperfil(Integer idperfil) {
+	this.idPerfil = idperfil;
 }
 public String getPerfil() {
 	return perfil;

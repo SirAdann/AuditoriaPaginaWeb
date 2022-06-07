@@ -22,7 +22,7 @@ public class CursosServiceImpl implements ICursosService {
 		lista = new LinkedList<Curso>();
 		try {
 			Curso curso1 = new Curso();
-			curso1.setId(1);
+			curso1.setIdcurso(1);
 			curso1.setNombre("Declaración Patrimonial");
 			curso1.setDescripcion(
 					"En este curso se presentará información referente a la presentación de su declaración patrimonial y el sistema informático Sudep");
@@ -35,7 +35,7 @@ public class CursosServiceImpl implements ICursosService {
 			curso1.setImagen("declaracion.jpg");
 
 			Curso curso2 = new Curso();
-			curso2.setId(2);
+			curso2.setIdcurso(2);
 			curso2.setNombre("Ética y Valores");
 			curso2.setDescripcion(
 					"En este curso se hablara sobre temas referentes a la Ética y Valores dentro de un Ambiente Laboral");
@@ -64,7 +64,7 @@ public class CursosServiceImpl implements ICursosService {
 	@Override
 	public Curso buscarPorId(Integer idCurso) {
 		for (Curso c : lista) {
-			if (c.getId() == idCurso) {
+			if (c.getIdcurso() == idCurso) {
 				return c;
 			}
 		}
