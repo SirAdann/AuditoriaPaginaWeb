@@ -29,8 +29,8 @@ public class Curso {
 	public Integer getIdcurso() {
 		return idCurso;
 	}
-	public void setIdcurso(Integer idcurso) {
-		this.idCurso = idcurso;
+	public void setIdcurso(Integer idCurso) {
+		this.idCurso = idCurso;
 	}
 	public String getNombre() {
 		return nombre;

@@ -57,7 +57,7 @@
                 </div>   
                 
                 <span th:if="${curso.estatus==1}">
-                <a class="btn btn-success float-right" th:href="@{/cursos/createAsistente/{id} (id=${curso.id}) }" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Registrarse</a>                            
+                <a class="btn btn-success float-right" th:href="@{/cursos/createAsistente/{id} (id=${curso.idcurso}) }" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Registrarse</a>                            
               	</span>
               	 <span th:unless="${curso.estatus==1}">
               	<a class="btn btn-secondary float-right" href="#" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Descargar presentación</a>  

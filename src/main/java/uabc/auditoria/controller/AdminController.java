@@ -16,6 +16,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,9 +28,11 @@ import uabc.auditoria.Util.Utileria;
 import uabc.auditoria.model.Curso;
 import uabc.auditoria.model.Perfil;
 import uabc.auditoria.model.Usuario;
+import uabc.auditoria.repository.CursosRepository;
 import uabc.auditoria.repository.PerfilesRepository;
 import uabc.auditoria.repository.UsuariosRepository;
 import uabc.auditoria.service.CursosServiceImpl;
+import uabc.auditoria.service.db.CursosServiceJpa;
 
 @Controller
 @RequestMapping("/admin")
@@ -39,19 +42,20 @@ public class AdminController {
 	private String ruta;
 	
 	@Autowired
-	private	CursosServiceImpl serviceCursos;
-	
-	@Autowired
-	private PerfilesRepository repoPerfiles;
-	
-	@Autowired
-	private UsuariosRepository repoUsuarios;
+	private	CursosServiceJpa serviceCursos;
 	
 	
+	/*
+	 * 
+	 * 
+	 * @Autowired private PerfilesRepository repoPerfiles;
+	 * 
+	 * @Autowired private UsuariosRepository repoUsuarios; 
+	 */
 	@GetMapping("/index")
 	public String mostrarOpciones() {
 		
-		buscarUsuariosPorEstatus();
+	
 		return "admin/opciones";}
 	
 	
@@ -91,10 +95,38 @@ public class AdminController {
 		return "redirect:/admin/cursos/listaCursos";   
 	}
 	
+	@GetMapping("/EliminarCurso/{id}")
+	public String EliminarCurso(@PathVariable("id") int idCurso,RedirectAttributes attributes) {
+
+		Curso curso = serviceCursos.buscarPorId(idCurso);	
+		
+		System.out.println("Registro: "+ curso.getNombre());
+		
+		serviceCursos.borrarCurso(curso);
+		
+		/*
+		 * if(serviceCursos.borrarCurso(curso)==true) {
+		 * System.out.println("Borrado con exito"); attributes.addFlashAttribute("msg",
+		 * "Registro Borrado");
+		 * 
+		 * }else { System.out.println("Error al borrar registro");
+		 * attributes.addFlashAttribute("msg", "Registro Borrado");
+		 * 
+		 * }
+		 */
+		
+		return "admin/cursos/listaCursos";
+		
+	}
+	
+	
+	
+	
+	
 	@GetMapping("/perfiles/listaPerfiles")
 	public String mostrarListadoPerfiles(Model model) {
 		model.addAttribute("cursos", serviceCursos.buscarTodos());
-		crearPerfiles();
+		//crearPerfiles();
 		System.out.println("Perfiles creados");
 		return "admin/listadoCursos";}
 	
@@ -107,12 +139,14 @@ public class AdminController {
 		System.out.println("Usuario creado");
 		return "admin/listadoCursos";}
 	
-	private void crearPerfiles() {
-		
-		repoPerfiles.saveAll(getPerfilesAplicacion());
-		
-		
-	}
+	/*
+	 * private void crearPerfiles() {
+	 * 
+	 * repoPerfiles.saveAll(getPerfilesAplicacion());
+	 * 
+	 * 
+	 * }
+	 */
 	
 	private List <Perfil>getPerfilesAplicacion(){
 		List<Perfil> lista= new LinkedList<Perfil>();
@@ -152,36 +186,34 @@ public class AdminController {
 		user.agregar(per1);
 		user.agregar(per2);
 		
-		repoUsuarios.save(user);
+		//repoUsuarios.save(user);
 	}
 	
-	public void buscarUsuario() {
-		Optional<Usuario> optional=repoUsuarios.findById(2);
-		
-		if(optional.isPresent()) {
-			Usuario u = optional.get();
-			System.out.println("Usuario "+ u.getNombre());
-			System.out.println("perfiles asignados");
-			
-			for (Perfil p : u.getPerfiles()) {
-			System.out.println(p.getPerfil());
-			
-			}
-		}
-	}
-	public void buscarUsuariosPorEstatus() {
-		List<Usuario> listausuarios=repoUsuarios.findByEstatus(1);
-		for (Usuario u: listausuarios) {
-			
-			System.out.println("Nombre "+u.getNombre() +" Usuario: "+u.getUsername());
-			for (Perfil p : u.getPerfiles()) {
-				System.out.println(p.getPerfil());
-				
-				}
-			
-		}
-		
-	}
+	/*
+	 * public void buscarUsuario() { Optional<Usuario>
+	 * optional=repoUsuarios.findById(2);
+	 * 
+	 * if(optional.isPresent()) { Usuario u = optional.get();
+	 * System.out.println("Usuario "+ u.getNombre());
+	 * System.out.println("perfiles asignados");
+	 * 
+	 * for (Perfil p : u.getPerfiles()) { System.out.println(p.getPerfil());
+	 * 
+	 * } } }
+	 */
+	/*
+	 * public void buscarUsuariosPorEstatus() { List<Usuario>
+	 * listausuarios=repoUsuarios.findByEstatus(1); for (Usuario u: listausuarios) {
+	 * 
+	 * System.out.println("Nombre "+u.getNombre() +" Usuario: "+u.getUsername());
+	 * for (Perfil p : u.getPerfiles()) { System.out.println(p.getPerfil());
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * }
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder webDataBinder) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

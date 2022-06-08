@@ -10,4 +10,5 @@ public interface ICursosService {
 	List<Curso> buscarTodos();
 	Curso buscarPorId(Integer idCurso);
 	void guardar(Curso curso);
+	void borrarCurso(Curso curso);
 }

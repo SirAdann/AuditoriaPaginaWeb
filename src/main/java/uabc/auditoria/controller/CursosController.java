@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import uabc.auditoria.model.Asistente;
 import uabc.auditoria.model.Curso;
 import uabc.auditoria.service.CursosServiceImpl;
+import uabc.auditoria.service.db.CursosServiceJpa;
 
 @Controller
 @RequestMapping("/cursos")
@@ -25,7 +26,7 @@ public class CursosController {
 	
 	
 	@Autowired
-	private	CursosServiceImpl serviceCursos;
+	private	CursosServiceJpa serviceCursos;
 	
 	
 	//Metodo para enlistar cursos al visitante de la pagina
