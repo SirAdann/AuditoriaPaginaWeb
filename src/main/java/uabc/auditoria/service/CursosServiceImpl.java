@@ -77,7 +77,8 @@ public class CursosServiceImpl implements ICursosService {
 	}
 
 	@Override
-	public void borrarCurso(Curso curso) {
+	public boolean borrarCurso(Curso curso) {
+		return false;
 		// TODO Auto-generated method stub
 		
 	}

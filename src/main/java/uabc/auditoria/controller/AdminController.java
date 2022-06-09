@@ -90,7 +90,7 @@ public class AdminController {
 			
 			}}
 		serviceCursos.guardar(curso);
-		attributes.addFlashAttribute("msg", "Registro Guardado");		
+		attributes.addFlashAttribute("msgregistro", "Registro Guardado");		
 		System.out.println("Curso: " + curso);		
 		return "redirect:/admin/cursos/listaCursos";   
 	}
@@ -104,20 +104,19 @@ public class AdminController {
 		
 		serviceCursos.borrarCurso(curso);
 		
-		/*
-		 * if(serviceCursos.borrarCurso(curso)==true) {
-		 * System.out.println("Borrado con exito"); attributes.addFlashAttribute("msg",
-		 * "Registro Borrado");
-		 * 
-		 * }else { System.out.println("Error al borrar registro");
-		 * attributes.addFlashAttribute("msg", "Registro Borrado");
-		 * 
-		 * }
-		 */
 		
-		return "admin/cursos/listaCursos";
+		  if(serviceCursos.borrarCurso(curso)==true) {
+		  System.out.println("Borrado con exito");
+		  attributes.addFlashAttribute("msgborrado","Registro Borrado");
+		  
+		  }else { System.out.println("Error al borrar registro");
+		  attributes.addFlashAttribute("msgborrado", "Error al borrar registro");
+		  
+		  }
+		 
 		
-	}
+		return "redirect:/admin/cursos/listaCursos";   
+		}
 	
 	
 	

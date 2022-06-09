@@ -41,9 +41,18 @@ public class CursosServiceJpa implements ICursosService {
 	}
 
 	@Override
-	public void borrarCurso(Curso curso) {
-	
-			cursosRepo.delete(curso);
+	public boolean borrarCurso(Curso curso) {
+		boolean bandera=false;
+try {
+	cursosRepo.delete(curso);
+	bandera=true;
+}catch (Exception e) {
+	// TODO: handle exception
+	bandera=false;
+}
+
+			
+			return bandera;
 
 		
 		
