@@ -43,7 +43,7 @@
             <div th:if="${msgregistro != null}" class='alert alert-success' th:text="${msgregistro}" role='alert'></div>
             <div th:if="${msgborrado != null}" class='alert alert-danger' th:text="${msgborrado}" role='alert'></div>
             
-           <div th:if="${msg == null}" class='alert alert-success' th:text="${msg}" role='alert'>
+           <div th:if="${msg != null}" class='alert alert-primary' th:text="${msg}" role='alert'>
             <!-- TABLA DE LISTA DE CURSOS -->
             <table class="table table-hover">
               <thead class="thead-light">
