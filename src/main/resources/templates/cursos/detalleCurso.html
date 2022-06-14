@@ -25,7 +25,7 @@
 
 <div class="row">
           <div class="col-md-3">            
-            <img class="rounded mx-auto d-block" th:src="@{/images/cursos/{img} (img=${curso.imagen})}" alt="Generic placeholder image" width="220" height="220">            
+            <img class="rounded mx-auto d-block" th:src="@{/logos/{img} (img=${curso.imagen})}" alt="Generic placeholder image" width="220" height="220">            
           </div>
           <div class="col-md-9">
             <div class="card">
@@ -52,7 +52,7 @@
                 <div class="card bg-light mb-3" >
                   <div class="card-body">
                     <h5 class="card-title">Detalles del curso</h5>
-                <p th:text ="${curso.detalle}"class="card-text"></p>
+                <p th:utext ="${curso.detalle}"class="card-text"></p>
                   </div>
                 </div>   
                 
@@ -60,7 +60,7 @@
                 <a class="btn btn-success float-right" th:href="@{/cursos/createAsistente/{id} (id=${curso.idcurso}) }" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Registrarse</a>                            
               	</span>
               	 <span th:unless="${curso.estatus==1}">
-              	<a class="btn btn-secondary float-right" href="#" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Descargar presentación</a>  
+              	<a class="btn btn-secondary float-right" href="#" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Descargar material</a>  
               	<a class="btn btn-primary float-right" href="#" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Descargar video de curso</a>                            
               	</span>            
               	

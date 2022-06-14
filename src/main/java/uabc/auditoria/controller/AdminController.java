@@ -62,7 +62,19 @@ public class AdminController {
 	
 	@GetMapping("/cursos/listaCursos")
 	public String mostrarListadoCursos(Model model) {
-		model.addAttribute("cursos", serviceCursos.buscarTodos());
+		
+		List<Curso> listaCursos = new LinkedList<Curso>();
+		listaCursos= serviceCursos.buscarTodos();
+		if(listaCursos.size()>0) {
+			System.out.println("hay cursos");
+			model.addAttribute("cursos", listaCursos);
+
+		}else {
+			System.out.println("NO hay cursos");
+			model.addAttribute("msg", "No hay ningún curso registrado");
+
+		}
+	//	model.addAttribute("cursos", serviceCursos.buscarTodos());
 		
 		return "admin/listadoCursos";}
 	
