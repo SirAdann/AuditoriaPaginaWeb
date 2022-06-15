@@ -35,7 +35,17 @@ public class CursosController {
 	
 		
 	List<Curso> lista = serviceCursos.buscarTodos();
-	model.addAttribute("cursos", lista);
+	
+	if(lista.size()>0) {
+		System.out.println("hay cursos");
+		model.addAttribute("cursos", lista);
+
+	}else {
+		System.out.println("NO hay cursos");
+		model.addAttribute("msg", "No hay ningún curso disponible, consulte mas tarde o comuniquese al departamento de Auditoría Interna para mas Información.");
+
+	}
+	//model.addAttribute("cursos", lista);
 		return "cursos/vistaCursos";
 		}
 	

@@ -40,6 +40,10 @@ public class AdminController {
 
 	@Value("${empleosapp.ruta.imagenes}")
 	private String ruta;
+	@Value("${empleosapp.ruta.videos}")
+	private String rutaVideos;
+	@Value("${empleosapp.ruta.materiales}")
+	private String rutaMaterial;
 	
 	@Autowired
 	private	CursosServiceJpa serviceCursos;
@@ -71,7 +75,7 @@ public class AdminController {
 
 		}else {
 			System.out.println("NO hay cursos");
-			model.addAttribute("msg", "No hay ningún curso registrado");
+			model.addAttribute("msg", "No hay ningún curso registrado.");
 
 		}
 	//	model.addAttribute("cursos", serviceCursos.buscarTodos());
@@ -83,14 +87,14 @@ public class AdminController {
 		return "admin/formCurso";}
 	
 	@PostMapping("/cursos/save")
-	public String guardarCurso(Curso curso, BindingResult result, RedirectAttributes attributes, @RequestParam("archivoImagen") MultipartFile multiPart) {
+	public String guardarCurso(Curso curso, BindingResult result, RedirectAttributes attributes, @RequestParam("archivoImagen") MultipartFile multiPart,@RequestParam("archivoVideo") MultipartFile multiPartVideo,@RequestParam("archivoMaterial") MultipartFile multiPartMaterial) {
 		if (result.hasErrors()) {
 			for (ObjectError error: result.getAllErrors()){
 				System.out.println("Ocurrio un error: "+ error.getDefaultMessage());
 			
 			}			
 			return "admin/formCurso";
-		}
+		} 
 		
 		if (!multiPart.isEmpty()) {
 			//String ruta = "/empleos/img-vacantes/"; // Linux/MAC
@@ -101,6 +105,43 @@ public class AdminController {
 			curso.setImagen(nombreImagen);
 			
 			}}
+		
+		if (!multiPartVideo.isEmpty()) {
+			//String ruta = "/empleos/img-vacantes/"; // Linux/MAC
+			//String ruta = "c:/empleos/img-vacantes/"; // Windows
+			String nombreVideo = Utileria.guardarArchivo(multiPartVideo, rutaVideos);
+			if (nombreVideo != null){ // La imagen si se subio
+			// Procesamos la variable nombreImagen
+			curso.setVideo(nombreVideo);
+			
+			}}
+		if (!multiPartMaterial.isEmpty()) {
+			//String ruta = "/empleos/img-vacantes/"; // Linux/MAC
+			//String ruta = "c:/empleos/img-vacantes/"; // Windows
+			String nombreMaterial = Utileria.guardarArchivo(multiPartMaterial, rutaMaterial);
+			if (nombreMaterial != null){ // La imagen si se subio
+			// Procesamos la variable nombreImagen
+			curso.setMaterial(nombreMaterial);
+			
+			}}
+	
+		/*
+		 * if (!multiPartVideo.isEmpty()) { //String ruta = "/empleos/img-vacantes/"; //
+		 * Linux/MAC //String ruta = "c:/empleos/img-vacantes/"; // Windows String
+		 * nombreVideo = Utileria.guardarArchivo(multiPartVideo, rutaVideos); if
+		 * (nombreVideo != null){ // La imagen si se subio // Procesamos la variable
+		 * nombreImagen curso.setVideo(nombreVideo);
+		 * 
+		 * }} if (!multiPartMaterial.isEmpty()) { //String ruta =
+		 * "/empleos/img-vacantes/"; // Linux/MAC //String ruta =
+		 * "c:/empleos/img-vacantes/"; // Windows String nombreMaterial=
+		 * Utileria.guardarArchivo(multiPartMaterial, rutaMaterial); if (nombreMaterial
+		 * != null){ // La imagen si se subio // Procesamos la variable nombreImagen
+		 * curso.setVideo(nombreMaterial);
+		 * 
+		 * }}
+		 */
+		
 		serviceCursos.guardar(curso);
 		attributes.addFlashAttribute("msgregistro", "Registro Guardado");		
 		System.out.println("Curso: " + curso);		

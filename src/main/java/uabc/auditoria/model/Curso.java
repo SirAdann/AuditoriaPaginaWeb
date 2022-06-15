@@ -25,6 +25,8 @@ public class Curso {
 	private Integer estatus;
 	private String detalle;
 	private String imagen="no-image.png";
+	private String video="no-video.png";
+	private String material="no-material.png";
 
 	public Integer getIdcurso() {
 		return idCurso;
@@ -97,6 +99,26 @@ public class Curso {
 	}
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
+	}
+	
+	public Integer getIdCurso() {
+		return idCurso;
+	}
+	public void setIdCurso(Integer idCurso) {
+		this.idCurso = idCurso;
+	}
+	public String getVideo() {
+		return video;
+	}
+	public void setVideo(String video) {
+		this.video = video;
+	}
+	
+	public String getMaterial() {
+		return material;
+	}
+	public void setMaterial(String material) {
+		this.material = material;
 	}
 	@Override
 	public String toString() {

@@ -60,8 +60,8 @@
                 <a class="btn btn-success float-right" th:href="@{/cursos/createAsistente/{id} (id=${curso.idcurso}) }" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Registrarse</a>                            
               	</span>
               	 <span th:unless="${curso.estatus==1}">
-              	<a class="btn btn-secondary float-right" href="#" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Descargar material</a>  
-              	<a class="btn btn-primary float-right" href="#" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Descargar video de curso</a>                            
+              	<a class="btn btn-secondary float-right" th:href="@{/materiales/{mat} (mat=${curso.material})}" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Descargar material</a>  
+              	<a class="btn btn-primary float-right" th:href="@{/videos/{vid} (vid=${curso.video})}" role="button" title=""><i class="fas fa-file" aria-hidden="true"></i> Descargar video de curso</a>                            
               	</span>            
               	
               </div>
