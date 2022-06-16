@@ -40,11 +40,13 @@ public class CursosServiceJpa implements ICursosService {
 
 	}
 
+	
+	//falta añadir el atrapado de una excepcion en especifico en caso de que no exista el id EmptyResultDataAccessException y cambiar el metodo de booleano a string para atraparlo en el controlador y mandar mensaje distinto
 	@Override
-	public boolean borrarCurso(Curso curso) {
+	public boolean borrarCurso(Integer idCurso) {
 		boolean bandera=false;
 try {
-	cursosRepo.delete(curso);
+	cursosRepo.deleteById(idCurso);
 	bandera=true;
 }catch (Exception e) {
 	// TODO: handle exception
@@ -55,6 +57,12 @@ try {
 			return bandera;
 
 		
+		
+	}
+
+	@Override
+	public void eliminar(Integer idCurso) {
+		cursosRepo.deleteById(idCurso);
 		
 	}
 

@@ -8,7 +8,12 @@ import uabc.auditoria.model.Curso;
 public interface ICursosService {
 
 	List<Curso> buscarTodos();
+
 	Curso buscarPorId(Integer idCurso);
+
 	void guardar(Curso curso);
-boolean  borrarCurso(Curso curso);
+
+	boolean borrarCurso(Integer idCurso);
+
+	void eliminar(Integer idCurso);
 }

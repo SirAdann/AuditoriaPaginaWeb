@@ -148,17 +148,43 @@ public class AdminController {
 		return "redirect:/admin/cursos/listaCursos";   
 	}
 	
+	
+	//metodo para eliminar curso mandando todo el objeto al metodo jpa de borrado
+	/*
+	 * @GetMapping("/EliminarCurso/{id}") public String
+	 * EliminarCurso(@PathVariable("id") int idCurso,RedirectAttributes attributes)
+	 * {
+	 * 
+	 * Curso curso = serviceCursos.buscarPorId(idCurso);
+	 * 
+	 * System.out.println("Registro: "+ curso.getNombre());
+	 * 
+	 * serviceCursos.borrarCurso(curso);
+	 * 
+	 * 
+	 * if(serviceCursos.borrarCurso(curso)==true) {
+	 * System.out.println("Borrado con exito");
+	 * attributes.addFlashAttribute("msgborrado","Registro Borrado");
+	 * 
+	 * }else { System.out.println("Error al borrar registro");
+	 * attributes.addFlashAttribute("msgborrado", "Error al borrar registro");
+	 * 
+	 * }
+	 * 
+	 * 
+	 * return "redirect:/admin/cursos/listaCursos"; }
+	 */
+	
 	@GetMapping("/EliminarCurso/{id}")
 	public String EliminarCurso(@PathVariable("id") int idCurso,RedirectAttributes attributes) {
 
-		Curso curso = serviceCursos.buscarPorId(idCurso);	
+		//Curso curso = serviceCursos.buscarPorId(idCurso);	
 		
-		System.out.println("Registro: "+ curso.getNombre());
-		
-		serviceCursos.borrarCurso(curso);
+		//System.out.println("Registro: "+ curso.getNombre());
 		
 		
-		  if(serviceCursos.borrarCurso(curso)==true) {
+		
+		  if(serviceCursos.borrarCurso(idCurso)==true) {
 		  System.out.println("Borrado con exito");
 		  attributes.addFlashAttribute("msgborrado","Registro Borrado");
 		  
@@ -171,6 +197,16 @@ public class AdminController {
 		return "redirect:/admin/cursos/listaCursos";   
 		}
 	
+	
+	
+	//segundo metodo para eliminar curso mandando id para el metodo jpa de borrado
+	@GetMapping("/DeleteCurso/{id}")
+	public String eliminar(@PathVariable("id") int idCurso, Model model,RedirectAttributes attributes) {
+		System.out.println("Borrado de curso con id"+ idCurso);
+		
+		serviceCursos.eliminar(idCurso);
+		return "redirect:/admin/cursos/listaCursos";
+	}
 	
 	
 	
