@@ -26,6 +26,34 @@ if(modalidad != null) {
 	});
 }
 
+function ajustarform(){
+	
+	if(modalidad != null) {
+	    if (modalidad.value ==1) {
+        document.getElementById("plat").setAttribute("class", "mostrar");
+        document.getElementById("plat").setAttribute("required","required");
+        document.getElementById("lug").setAttribute("class", "ocultar");
+        document.getElementById("lug").removeAttribute("required");
+
+
+	        setTimeout(() => {}, 300);
+	    } else {
+	    document.getElementById("plat").setAttribute("class", "ocultar");
+	    document.getElementById("lug").setAttribute("class", "mostrar");
+        document.getElementById("plat").removeAttribute("required");
+        document.getElementById("lug").setAttribute("required", "required");
+
+	      
+
+
+	    }
+	
+}
+}
+
+
+
+
 if(puesto != null) {
 	puesto.addEventListener("click", function() {
 	    if (puesto.innerText == "Mostrar") {

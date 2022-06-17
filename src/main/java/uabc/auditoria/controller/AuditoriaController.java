@@ -32,6 +32,11 @@ public class AuditoriaController {
 	public String MostrarPaginaEntregaRecep(Model model) {
 		return"auditoria/entrega-recepcion";
 	}
+	@GetMapping("/opciones")
+	public String mostrarOpciones() {
+		
+	
+		return "auditoria/opciones";}
 
 
 

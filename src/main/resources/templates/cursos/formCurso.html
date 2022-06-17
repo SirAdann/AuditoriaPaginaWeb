@@ -16,6 +16,7 @@
 	th:href="@{/css/bootstrap.min.css}" />
 <link href="../static/css/template.css" rel="stylesheet"
 	th:href="@{/css/template.css}" />
+	
 <title>Auditoría Interna</title>
 <style>
 /* Make the image fully responsive */
@@ -26,7 +27,7 @@
 </style>
 
 </head>
-<body>
+<body onload="ajustarform()">
 	<div class="container-fluid">
 		<header th:insert="fragments/header :: navbar"> </header>
 	</div>
@@ -42,7 +43,7 @@
 					<strong>Datos del curso</strong>
 				</h5>
 				<div class="card-body">
-					<form th:action="@{/admin/cursos/save}" method=POST
+					<form th:action="@{/cursos/save}" method=POST
 						th:object="${curso}" enctype="multipart/form-data">
 						<div th:if="${#fields.hasErrors('*')}" class='alert alert-danger'
 							role='alert'>
@@ -54,8 +55,14 @@
 						<div class="row">
 							<div class="col-md-3">
 								<div class="form-group">
-									<label for="nombre">Nombre</label> <input type="text"
-										class="form-control" th:field="*{nombre}" id="nombre"
+									<label for="nombre">Nombre</label>
+									<input type="hidden" th:field="*{idCurso}">
+									<input type="hidden" th:field="*{imagen}">
+									<input type="hidden" th:field="*{video}">
+									<input type="hidden" th:field="*{material}">
+						
+									
+									 <input type="text" class="form-control" th:field="*{nombre}" id="nombre"
 										name="nombre" placeholder="Titulo del curso"
 										required="required">
 								</div>
@@ -133,7 +140,7 @@
 								<div class="form-group">
 									<label for="archivoImagen">Imagen</label> <input type="file"
 										class="form-control-file" name="archivoImagen"
-										id="archivoImagen">
+										id="archivoImagen" th:text="@{{img} (img=${curso.imagen})}">
 								</div>
 							</div>
 						</div>
@@ -148,9 +155,9 @@
 								</div>
 							</div>
 							<div class="col-md-3">
-								<label for="imagen">Imagen/Logo</label> <img
+								<label for="imagen">Imagen del curso</label> <img
 									class="rounded mx-auto d-block"
-									th:src="@{/images/construccion-logo.png}"
+									 th:src="@{/logos/{img} (img=${curso.imagen})}"
 									alt="Generic placeholder image" width="200" height="200">
 							</div>
 						</div>
@@ -161,7 +168,7 @@
 								<div class="form-group">
 
 									<label for="archivoVideo"><strong>Video</strong></label> <input
-										type="file" class="form-control-file" name="archivoVideo" id="archivoVideo">
+										type="file" class="form-control-file" name="archivoVideo" id="archivoVideo" th:text="@{{vid} (vid=${curso.video})}" >
 								</div>
 							</div>
 							<div class="col-md-3">
@@ -169,7 +176,7 @@
 
 									<label for="archivoMaterial"><strong>Material</strong></label> <input
 										type="file" class="form-control-file" name="archivoMaterial"
-										id="archivoMaterial">
+										id="archivoMaterial" th:text="@{{mat} (mat=${curso.material})}">
 								</div>
 							</div>
 						</div>
@@ -225,13 +232,19 @@
 		th:src="@{/js/bootstrap.min.js}"></script>
 	<script src="../static/js/template.js" th:src="@{/js/template.js}"></script>
 	<script th:src="@{/tinymce/tinymce.min.js}"></script>
-
+<!--      <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js}"></script>
+        <script th:src="@{../datetimepicker/jquery.datetimepicker.full.js}"></script> -->
 	<script>
-		$(function() {
+		 $(function() {
 			$("#fecha").datepicker({
 				dateFormat : 'dd-mm-yy'
 			});
-		});
+		}); 
+		
+	/* 	 $(document).ready(function () {
+             $.datetimepicker.setLocale('es');
+             $('#fecha').datetimepicker({value: '2017/04/20 11:22', step: 10});
+         }); */
 
 		$(document).ready(function() {
 			document.getElementById("plat").setAttribute("class", "mostrar");
