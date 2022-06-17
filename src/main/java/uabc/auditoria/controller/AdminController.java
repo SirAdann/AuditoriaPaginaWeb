@@ -199,6 +199,22 @@ public class AdminController {
 	
 	
 	
+	@GetMapping("/Editar/{id}")
+	public String EditarCurso(@PathVariable("id") int idCurso,RedirectAttributes attributes,Model model) {
+
+		Curso curso = serviceCursos.buscarPorId(idCurso);	
+		model.addAttribute("curso",curso);
+		
+		//System.out.println("Registro: "+ curso.getNombre());
+		
+		
+	
+		 
+		
+		return "/admin/formCurso";   
+		}
+	
+	
 	//segundo metodo para eliminar curso mandando id para el metodo jpa de borrado
 	@GetMapping("/DeleteCurso/{id}")
 	public String eliminar(@PathVariable("id") int idCurso, Model model,RedirectAttributes attributes) {
@@ -223,8 +239,7 @@ public class AdminController {
 	@GetMapping("/usuarios/listaUsuarios")
 	public String mostrarListadoUsuarios(Model model) {
 		model.addAttribute("cursos", serviceCursos.buscarTodos());
-		crearUsuarioConDosPerfiles();
-		System.out.println("Usuario creado");
+		//crearUsuarioConDosPerfiles();
 		return "admin/listadoCursos";}
 	
 	/*
@@ -235,48 +250,8 @@ public class AdminController {
 	 * 
 	 * }
 	 */
-	
-	private List <Perfil>getPerfilesAplicacion(){
-		List<Perfil> lista= new LinkedList<Perfil>();
-		Perfil per1= new Perfil();
-		per1.setPerfil("SUPERVISOR");
-		
-		Perfil per2= new Perfil();
-		per2.setPerfil("ADMINISTRADOR");
-		
-		Perfil per3= new Perfil();
-		per3.setPerfil("USUARIO");
-		
-		
-		lista.add(per1);
-		lista.add(per2);
-		lista.add(per3);
-		return lista;
-	}
-	
-	private void crearUsuarioConDosPerfiles() {
-		Usuario user = new Usuario();
-		user.setNombre("Jesús Adán");
-		user.setApellidoPaterno("Gama");
-		user.setApellidoMaterno("Guzmán");
-		user.setCorreo("adan.gama@uabc.edu.mx");
-		user.setFechaRegistro(new Date());
-		user.setUsername("Agama");
-		user.setPassword("12345");
-		user.setEstatus(1);
-		
-		Perfil per1 =new Perfil();
-		per1.setIdperfil(2);
-		
-		Perfil per2 =new Perfil();
-		per2.setIdperfil(3);
-		
-		user.agregar(per1);
-		user.agregar(per2);
-		
-		//repoUsuarios.save(user);
-	}
-	
+
+
 	/*
 	 * public void buscarUsuario() { Optional<Usuario>
 	 * optional=repoUsuarios.findById(2);
