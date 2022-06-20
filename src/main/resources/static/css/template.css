@@ -745,12 +745,20 @@ ol.espacio li{
 .contenido{
 	margin: 40px;
 }
-.contenido-formulario{
+.contenido-listado{
 	margin-top: 40px;
 	margin-left: 150px;
 	margin-right: 150px;
 	margin-bottom: 40px;
 }
+
+.contenido-formulario{
+	margin-top: 40px;
+	margin-left: 400px;
+	margin-right: 400px;
+	margin-bottom: 40px;
+}
+
 
 
 .p-inline{
@@ -802,6 +810,8 @@ margin-right:15px;
 	padding-top:20px;
 	padding-bottom:20px;
 }
+
+
 
 .texto-contenido-derecha{
 	text-align:right;

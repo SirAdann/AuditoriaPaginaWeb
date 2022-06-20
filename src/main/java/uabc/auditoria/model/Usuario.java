@@ -29,7 +29,7 @@ private String apellidoPaterno;
 private String apellidoMaterno;
 private String correo;
 private String password;
-private Integer estatus;
+private boolean estatus;
 private Date fechaRegistro;
 
 @ManyToMany(fetch = FetchType.EAGER)
@@ -43,15 +43,6 @@ public void agregar(Perfil tempperfil){
 	perfiles.add(tempperfil);
 }
 
-
-public Integer getIdusuario() {
-	return idUsuario;
-}
-
-
-public void setIdusuario(Integer idusuario) {
-	this.idUsuario = idusuario;
-}
 
 
 public String getUsername() {
@@ -90,10 +81,10 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-public Integer getEstatus() {
+public boolean getEstatus() {
 	return estatus;
 }
-public void setEstatus(Integer estatus) {
+public void setEstatus(boolean estatus) {
 	this.estatus = estatus;
 }
 public Date getFechaRegistro() {
@@ -108,6 +99,16 @@ public List<Perfil> getPerfiles() {
 }
 public void setPerfiles(List<Perfil> perfiles) {
 	this.perfiles = perfiles;
+}
+
+
+public Integer getIdUsuario() {
+	return idUsuario;
+}
+
+
+public void setIdUsuario(Integer idUsuario) {
+	this.idUsuario = idUsuario;
 }
 
 

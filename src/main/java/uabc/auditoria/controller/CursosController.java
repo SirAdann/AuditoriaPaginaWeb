@@ -25,7 +25,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import uabc.auditoria.Util.Utileria;
 import uabc.auditoria.model.Asistente;
 import uabc.auditoria.model.Curso;
-import uabc.auditoria.service.CursosServiceImpl;
+import uabc.auditoria.service.ICursosService;
+//import uabc.auditoria.service.CursosServiceImpl;
 import uabc.auditoria.service.db.CursosServiceJpa;
 
 @Controller
@@ -41,7 +42,7 @@ public class CursosController {
 	
 	
 	@Autowired
-	private	CursosServiceJpa serviceCursos;
+	private	ICursosService serviceCursos;
 	
 	
 	//Metodo para enlistar cursos al visitante de la pagina
@@ -222,11 +223,11 @@ public class CursosController {
 		
 		@InitBinder
 		public void initBinder(WebDataBinder webDataBinder) {
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
 			webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 		}
 		
-		
+
 	
 
 	

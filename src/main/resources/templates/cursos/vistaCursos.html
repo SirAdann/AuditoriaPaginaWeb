@@ -21,7 +21,7 @@
 	<!-- Contenido Principal -->
 	<div class="main container-fluid">
 		<!-- Todo el contenido principal se coloca aquí -->
-		<div class="contenido">
+		<div class="contenido-blanco">
 
 
 			<div class="float-right">
@@ -63,7 +63,7 @@
 					<p th:text="${curso.descripcion}"></p>
 					<p>
 						<a class="btn btn-secondary float-right"
-							th:href="@{/cursos/view/{id} (id=${curso.idcurso}) }"
+							th:href="@{/cursos/view/{id} (id=${curso.idCurso}) }"
 							role="button">Detalles &raquo;</a>
 					</p>
 				</div>

@@ -40,11 +40,11 @@
 		<div class="contenido-formulario">
 			<div class="card">
 				<h5 class="card-header">
-					<strong>Datos del curso</strong>
+					<strong>Datos del Usuario</strong>
 				</h5>
 				<div class="card-body">
-					<form th:action="@{/cursos/save}" method=POST
-						th:object="${curso}" enctype="multipart/form-data">
+					<form th:action="@{/usuarios/save}" method=POST
+						th:object="${usuario}" enctype="multipart/form-data">
 						<div th:if="${#fields.hasErrors('*')}" class='alert alert-danger'
 							role='alert'>
 							Por favor corrija los siguientes errores:
@@ -53,133 +53,90 @@
 							</ul>
 						</div>
 						<div class="row">
-							<div class="col-md-3">
+							<div class="col-lg-4 col-md-6">
 								<div class="form-group">
 									<label for="nombre">Nombre</label>
-									<input type="hidden" th:field="*{idCurso}">
-									<input type="hidden" th:field="*{imagen}">
-									<input type="hidden" th:field="*{video}">
-									<input type="hidden" th:field="*{material}">
+									 <input type="hidden" th:field="*{idUsuario}">
+								
 						
 									
 									 <input type="text" class="form-control" th:field="*{nombre}" id="nombre"
-										name="nombre" placeholder="Titulo del curso"
+										name="nombre" placeholder="Nombre(s)"
 										required="required">
 								</div>
 							</div>
-							<div class="col-md-9">
+							<div class="col-lg-4 col-md-6">
 								<div class="form-group">
-									<label for="descripcion">Descripción</label> <input type="text"
-										class="form-control" id="descripcion"
-										th:field="*{descripcion}" name="descripcion"
-										placeholder="Breve descripcion del curso" required="required">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="form-group">
-									<label for="fecha">Fecha del curso</label> <input type="datetime-local"
-										class="form-control" th:field="*{fecha}" name="fecha"
-										id="fecha" placeholder="Fecha de publicacion"
+									<label for="nombre">Apellido Paterno</label>
+									 <input type="text" class="form-control" th:field="*{apellidoPaterno}" id="apellidoPaterno"
+										name="apellidoPaterno" placeholder="Apellido Paterno"
 										required="required">
 								</div>
 							</div>
-							<div class="col-md-6">
+								<div class="col-lg-4 col-md-6">
 								<div class="form-group">
-									<label for="presentador">Presentador(es)</label> <input
-										type="text" class="form-control" th:field="*{presentador}"
-										name="presentador" id="presentador"
-										placeholder="Nombre del presentador o presentadores"
+									<label for="nombre">Apellido Materno</label>
+									 <input type="text" class="form-control" th:field="*{apellidoMaterno}" id="apellidoMaterno"
+										name="apellidoMaterno" placeholder="Apellido Materno"
 										required="required">
 								</div>
 							</div>
-
-							<div class="col-md-3">
+							</div>
+													<div class="row">
+							
+								<div class="col-lg-4 col-md-6">
 								<div class="form-group">
-									<label for="estatus">Estatus</label> <select
-										class="form-control" th:field="*{estatus}" name="estatus"
-										id="estatus">
+									<label for="nombre">Correo</label>
+									 <input type="text" class="form-control" th:field="*{correo}" id="correo"
+										name="correo" placeholder="ejemplo@uabc.edu.mx"
+										required="required">
+								</div>
+							</div>
+								<div class="col-lg-4 col-md-6">
+								<div class="form-group">
+									<label for="estatus">Perfil</label> <select
+										class="form-control" th:field="*{perfiles}" name="perfiles"
+										id="perfiles">
 										<option value="1">Abierto</option>
 										<option value="2">Cerrado</option>
 										<option value="3">No disponible</option>
 									</select>
 								</div>
 							</div>
-
-
-						</div>
-						<div class="row">
-							<div class="col-md-4">
+								<div class="col-lg-4 col-md-6">
 								<div class="form-group">
-									<label for="modalidad">Modalidad</label> <select
-										class="form-control" th:field="*{modalidad}" name="modalidad"
-										id="modalidad">
-										<option value="1">Online</option>
-										<option value="2">Presencial</option>
-									</select>
-
+									<label for="nombre">Estatus</label>
+									 <input type="checkbox" class="form-control" th:field="*{estatus}" id="estatus"
+										name="estatus" >
 								</div>
 							</div>
-							<div class="col-md-4" id="plat">
-								<div class="form-group">
-									<label for="plataforma">Plataforma</label> <input type="text"
-										class="form-control" th:field="*{plataforma}"
-										name="plataforma" id="plataforma"
-										placeholder="Plataforma donde se brindará el curso">
-								</div>
-							</div>
-							<div class="col-md-4" id="lug">
-								<div class="form-group">
-									<label for="plataforma">Lugar</label> <input type="text"
-										class="form-control" th:field="*{lugar}" name="lugar"
-										id="lugar" placeholder="Lugar donde se brindará el curso">
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label for="archivoImagen">Imagen</label> <input type="file"
-										class="form-control-file" name="archivoImagen"
-										id="archivoImagen" th:text="@{{img} (img=${curso.imagen})}">
-								</div>
-							</div>
-						</div>
-						<hr>
-
-						<div class="row">
-							<div class="col-md-9">
-								<div class="form-group">
-									<label for="detalle"><strong>Detalles</strong></label>
-									<textarea class="form-control" th:field="*{detalle}"
-										name="detalle" id="detalle" rows="7"></textarea>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<label for="imagen">Imagen del curso</label> <img
-									class="rounded mx-auto d-block"
-									 th:src="@{/logos/{img} (img=${curso.imagen})}"
-									alt="Generic placeholder image" width="200" height="200">
-							</div>
-						</div>
-						<hr>
 						
-						<div class="row">
-							<div class="col-md-3">
-								<div class="form-group">
-
-									<label for="archivoVideo"><strong>Video</strong></label> <input
-										type="file" class="form-control-file" name="archivoVideo" id="archivoVideo" th:text="@{{vid} (vid=${curso.video})}" >
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="form-group">
-
-									<label for="archivoMaterial"><strong>Material</strong></label> <input
-										type="file" class="form-control-file" name="archivoMaterial"
-										id="archivoMaterial" th:text="@{{mat} (mat=${curso.material})}">
-								</div>
-							</div>
 						</div>
+						<hr>
+							<div class="row">
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<label for="nombre">Usuario</label>
+									 <input type="text" class="form-control" th:field="*{username}" id="username"
+										name="username" placeholder="Usuario"
+										required="required">
+								</div>
+								
+							</div>
+									<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<label for="nombre">Contraseña</label>
+									 <input type="password" class="form-control" th:field="*{password}" id="password"
+										name="password" placeholder="contraseña"
+										required="required">
+								</div>
+								
+							</div>
+							</div>
+					
+						
+					
+			
 					
 						
 						

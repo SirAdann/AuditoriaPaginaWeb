@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name="cursos")
 public class Curso {
@@ -21,19 +23,13 @@ public class Curso {
 	private Integer modalidad;
 	private String plataforma;
 	private String lugar;
-	private String liga;
+	private String liga; 	
 	private Integer estatus;
 	private String detalle;
 	private String imagen="no-image.png";
 	private String video="no-video.png";
 	private String material="no-material.png";
 
-	public Integer getIdcurso() {
-		return idCurso;
-	}
-	public void setIdcurso(Integer idCurso) {
-		this.idCurso = idCurso;
-	}
 	public String getNombre() {
 		return nombre;
 	}

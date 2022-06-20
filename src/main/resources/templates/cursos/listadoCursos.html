@@ -34,7 +34,7 @@
 		Cursos
 		</h1>
 
-		<div class="contenido-formulario">
+		<div class="contenido-listado">
   <div class="card">
          <!--   <h4 class="card-header"><strong>Listado de Ofertas de Trabajo</strong></h4>        -->      
           <div class="card-body">
@@ -69,8 +69,8 @@
                 <td th:text="${curso.estatus==1 ? 'Abierto' : 'Cerrado' }"></td>
                 <!--    <td th:text="${vacante.destacado==1 ? 'SI' : 'NO' }"></td>-->
                   <td>
-                    <a th:href="@{/cursos/Editar/{id} (id=${curso.idcurso})}" class="btn btn-success" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a th:href="@{/cursos/EliminarCurso/{id} (id=${curso.idcurso}) }"  onclick="return confirm('¿Estas seguro?')" class="btn btn-danger " role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
+                    <a th:href="@{/cursos/Editar/{id} (id=${curso.idCurso})}" class="btn btn-success" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                    <a th:href="@{/cursos/EliminarCurso/{id} (id=${curso.idCurso}) }"  onclick="return confirm('¿Estas seguro?')" class="btn btn-danger " role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
                   </td>
                 </tr>                                              
               </tbody>
