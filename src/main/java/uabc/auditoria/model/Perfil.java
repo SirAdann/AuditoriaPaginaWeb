@@ -13,7 +13,8 @@ public class Perfil {
 @Id 
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Integer idPerfil;
-private String perfil;
+private String nombre;
+private String detalles;
 
 public Integer getIdperfil() {
 	return idPerfil;
@@ -21,12 +22,29 @@ public Integer getIdperfil() {
 public void setIdperfil(Integer idperfil) {
 	this.idPerfil = idperfil;
 }
-public String getPerfil() {
-	return perfil;
+public String getNombre() {
+	return nombre;
 }
-public void setPerfil(String perfil) {
-	this.perfil = perfil;
+public void setNombre(String nombre) {
+	this.nombre = nombre;
 }
+public Integer getIdPerfil() {
+	return idPerfil;
+}
+public void setIdPerfil(Integer idPerfil) {
+	this.idPerfil = idPerfil;
+}
+public String getDetalles() {
+	return detalles;
+}
+public void setDetalles(String detalles) {
+	this.detalles = detalles;
+}
+@Override
+public String toString() {
+	return "Perfil [idPerfil=" + idPerfil + ", nombre=" + nombre + ", detalles=" + detalles + "]";
+}
+
 
 
 }
