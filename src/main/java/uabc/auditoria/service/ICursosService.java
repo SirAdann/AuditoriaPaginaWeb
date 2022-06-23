@@ -3,6 +3,7 @@ package uabc.auditoria.service;
 import java.util.LinkedList;
 import java.util.List;
 
+import uabc.auditoria.model.Asistente;
 import uabc.auditoria.model.Curso;
 
 public interface ICursosService {
@@ -16,4 +17,6 @@ public interface ICursosService {
 	boolean borrarCurso(Integer idCurso);
 
 	void eliminar(Integer idCurso);
+	
+	List<Asistente> buscarAsistentesPorCurso(Integer idCurso);
 }

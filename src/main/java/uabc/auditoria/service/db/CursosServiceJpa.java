@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Service;
 
+import uabc.auditoria.model.Asistente;
 import uabc.auditoria.model.Curso;
+import uabc.auditoria.repository.AsistentesRepository;
 import uabc.auditoria.repository.CursosRepository;
 import uabc.auditoria.service.ICursosService;
 
@@ -16,6 +18,9 @@ public class CursosServiceJpa implements ICursosService {
 	
 	@Autowired
 	private CursosRepository cursosRepo;
+	
+	@Autowired
+	private AsistentesRepository asistentesRepo;
 
 	@Override
 	public List<Curso> buscarTodos() {
@@ -66,4 +71,9 @@ try {
 		
 	}
 
+	@Override
+	public List<Asistente> buscarAsistentesPorCurso(Integer idCurso) {
+		// TODO Auto-generated method stub
+		return asistentesRepo.findByCurso(idCurso);
+	}
 }

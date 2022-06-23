@@ -1,5 +1,8 @@
 package uabc.auditoria.controller;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,6 +58,7 @@ public class AsistenteController {
 	System.out.println("Asistente: " + asistente);		
 	return "redirect:/cursos/createAsistente/"+idCurso;   
 }
+
 	
 	
 	//METODO PARA ASIGNAR DATOS DE MODELOS EN TODO EL CONTROLADOR

@@ -221,6 +221,20 @@ public class CursosController {
 			}
 		
 		
+		
+		//Abre el formulario para editar el curso
+		@GetMapping("/verAsistentes/{id}")
+		public String enlistarAsistentesdelcurso(@PathVariable("id") int idCurso,RedirectAttributes attributes,Model model) {
+
+			
+			model.addAttribute("asistentes",serviceCursos.buscarAsistentesPorCurso(idCurso));
+			Curso curso = serviceCursos.buscarPorId(idCurso);	
+			model.addAttribute("curso",curso);
+			//System.out.println("Registro: "+ curso.getNombre());
+			return "/asistentes/listaAsistentes";   
+			}
+		
+		
 		@InitBinder
 		public void initBinder(WebDataBinder webDataBinder) {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");

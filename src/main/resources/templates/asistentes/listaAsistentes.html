@@ -30,15 +30,14 @@
 	</div>
 
 	<div class="main container-fluid">
-		<h1 class="titulo-seccion bold text-center">
-		Cursos
+		<h1 class="titulo-seccion bold text-center" th:text="${curso.nombre}">
 		</h1>
 
 		<div class="contenido-listado">
   <div class="card">
          <!--   <h4 class="card-header"><strong>Listado de Ofertas de Trabajo</strong></h4>        -->      
           <div class="card-body">
-            <a class="btn btn-primary" th:href="@{/cursos/create}" title="Crear nuevo curso" role="button"><i class="fas fa-file" aria-hidden="true"></i> Nuevo</a>            
+            <!--  <a class="btn btn-primary" th:href="@{/cursos/create}" title="Crear nuevo curso" role="button"><i class="fas fa-file" aria-hidden="true"></i> Nuevo</a>     -->       
             <hr>
             <div th:if="${msgregistro != null}" class='alert alert-success' th:text="${msgregistro}" role='alert'></div>
             <div th:if="${msgborrado != null}" class='alert alert-danger' th:text="${msgborrado}" role='alert'></div>
@@ -52,27 +51,30 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col">Nombre</th>                  
-                  <th scope="col">Fecha del curso</th>
-                  <th scope="col">Estatus</th>            
-                  <th scope="col">Operaciones</th>
+                  <th scope="col">Apellido Paterno</th>
+                  <th scope="col">Apellido Materno</th>            
+                  <th scope="col">Número de empleado</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">No. de contacto</th>
+                  <th scope="col">Opciones</th>
                 </tr>
               </thead>
               <tbody>
         
               
-                <tr th:each="curso : ${cursos}">
+                <tr th:each="asistente : ${asistentes}">
                   
-                  <td th:text="${curso.nombre}"></td>  
-                  
-                                  
-                  <td th:text="${#dates.format(curso.fecha,'dd-MM-yyyy HH:mm')}"></td>
-                <td th:text="${curso.estatus==1 ? 'Abierto' : 'Cerrado' }"></td>
+                  <td th:text="${curso.nombre}"></td>
+                  <td th:text="${curso.apellidoPaterno}"></td>
+                  <td th:text="${curso.apellidoPaterno}"></td>
+                  <td th:text="${curso.numEmpleado}"></td>
+                  <td th:text="${curso.correo}"></td>
+                  <td th:text="${curso.numContacto}"></td> 
+               
                 <!--    <td th:text="${vacante.destacado==1 ? 'SI' : 'NO' }"></td>-->
                   <td>
-                    <a th:href="@{/cursos/Editar/{id} (id=${curso.idCurso})}" class="btn btn-success" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a th:href="@{/cursos/EliminarCurso/{id} (id=${curso.idCurso}) }"  onclick="return confirm('¿Estas seguro?')" class="btn btn-danger " role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
-                    <a th:href="@{/cursos/verAsistentes/{id} (id=${curso.idCurso})}" class="btn btn-primary" role="button" title="Visualizar asistentes"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                 
+                    <a th:href="@{/asistentes/Editar/{id} (id=${asistente.idAsistente})}" class="btn btn-success" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                    <a th:href="@{/asistentes/EliminarAsistente/{id} (id=${asistente.idAsistente}) }"  onclick="return confirm('¿Estas seguro?')" class="btn btn-danger " role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
                   </td>
                 </tr>                                              
               </tbody>
