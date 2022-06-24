@@ -64,17 +64,17 @@
               
                 <tr th:each="asistente : ${asistentes}">
                   
-                  <td th:text="${curso.nombre}"></td>
-                  <td th:text="${curso.apellidoPaterno}"></td>
-                  <td th:text="${curso.apellidoPaterno}"></td>
-                  <td th:text="${curso.numEmpleado}"></td>
-                  <td th:text="${curso.correo}"></td>
-                  <td th:text="${curso.numContacto}"></td> 
+                  <td th:text="${asistente.nombre}"></td>
+                  <td th:text="${asistente.apellidoPaterno}"></td>
+                  <td th:text="${asistente.apellidoMaterno}"></td>
+                  <td th:text="${asistente.numEmpleado}"></td>
+                  <td th:text="${asistente.correo}"></td>
+                  <td th:text="${asistente.numContacto}"></td> 
                
                 <!--    <td th:text="${vacante.destacado==1 ? 'SI' : 'NO' }"></td>-->
                   <td>
-                    <a th:href="@{/asistentes/Editar/{id} (id=${asistente.idAsistente})}" class="btn btn-success" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a th:href="@{/asistentes/EliminarAsistente/{id} (id=${asistente.idAsistente}) }"  onclick="return confirm('¿Estas seguro?')" class="btn btn-danger " role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
+                 <!--   <a th:href="@{/asistentes/Editar/{id} (id=${asistente.idAsistente})}" class="btn btn-success" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a> -->
+                    <a th:href="@{/asistentes/EliminarAsistente/{id}/{idcurso}(id=${asistente.idAsistente}, idcurso=${asistente.curso.idCurso})}"  onclick="return confirm('¿Estas seguro?')" class="btn btn-danger " role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
                   </td>
                 </tr>                                              
               </tbody>

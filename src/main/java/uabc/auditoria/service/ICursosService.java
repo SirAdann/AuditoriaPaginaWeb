@@ -18,5 +18,4 @@ public interface ICursosService {
 
 	void eliminar(Integer idCurso);
 	
-	List<Asistente> buscarAsistentesPorCurso(Integer idCurso);
 }

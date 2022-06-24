@@ -24,11 +24,14 @@ public class Asistente {
 	@OneToOne
 	@JoinColumn(name="idCurso")
 	private Curso curso;
-	public Integer getId() {
+
+	
+	
+	public Integer getIdAsistente() {
 		return idAsistente;
 	}
-	public void setId(Integer id) {
-		this.idAsistente = id;
+	public void setIdAsistente(Integer idAsistente) {
+		this.idAsistente = idAsistente;
 	}
 	public String getApellidoPaterno() {
 		return apellidoPaterno;

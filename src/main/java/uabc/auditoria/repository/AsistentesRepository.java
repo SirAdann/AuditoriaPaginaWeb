@@ -8,6 +8,6 @@ import uabc.auditoria.model.Asistente;
 import uabc.auditoria.model.Usuario;
 
 public interface AsistentesRepository extends JpaRepository<Asistente, Integer> {
-	List<Asistente> findByCurso(Integer idCurso);
+	List<Asistente> findByCursoIdCurso(Integer idCurso);
 
 }

@@ -25,6 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import uabc.auditoria.Util.Utileria;
 import uabc.auditoria.model.Asistente;
 import uabc.auditoria.model.Curso;
+import uabc.auditoria.service.IAsistentesService;
 import uabc.auditoria.service.ICursosService;
 //import uabc.auditoria.service.CursosServiceImpl;
 import uabc.auditoria.service.db.CursosServiceJpa;
@@ -44,6 +45,8 @@ public class CursosController {
 	@Autowired
 	private	ICursosService serviceCursos;
 	
+	@Autowired
+	private IAsistentesService serviceAsistentes;
 	
 	//Metodo para enlistar cursos al visitante de la pagina
 	@GetMapping("/listado")
@@ -227,9 +230,22 @@ public class CursosController {
 		public String enlistarAsistentesdelcurso(@PathVariable("id") int idCurso,RedirectAttributes attributes,Model model) {
 
 			
-			model.addAttribute("asistentes",serviceCursos.buscarAsistentesPorCurso(idCurso));
+			List<Asistente> listaAsistentes = new LinkedList<Asistente>();
+			listaAsistentes= serviceAsistentes.buscarAsistentesPorCurso(idCurso);
+			if(listaAsistentes.size()>0) {
+				model.addAttribute("asistentes", listaAsistentes);
+
+			}else {
+				model.addAttribute("msg", "No hay ningún asistente registrado.");
+
+			}
+		//	model.addAttribute("cursos", serviceCursos.buscarTodos());
+			
+
 			Curso curso = serviceCursos.buscarPorId(idCurso);	
-			model.addAttribute("curso",curso);
+			
+			
+		model.addAttribute("curso",curso);
 			//System.out.println("Registro: "+ curso.getNombre());
 			return "/asistentes/listaAsistentes";   
 			}

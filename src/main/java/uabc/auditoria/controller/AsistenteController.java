@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import uabc.auditoria.model.Asistente;
 import uabc.auditoria.model.Curso;
+import uabc.auditoria.service.IAsistentesService;
 import uabc.auditoria.service.db.CursosServiceJpa;
 
 @Controller
@@ -26,6 +27,9 @@ public class AsistenteController {
 	
 	@Autowired
 	private	CursosServiceJpa serviceCursos;
+	
+	@Autowired
+	private	IAsistentesService serviceAsistentes;
 	
 	//metodo para mostrar la vista del registro
 	@GetMapping("/createAsistente/{id}")
@@ -50,16 +54,40 @@ public class AsistenteController {
 			
 			}			
 			return "cursos/registroAsistente";
+			
+			
 		}
 
-	
+		serviceAsistentes.Guardar(asistente);
 	
 	attributes.addFlashAttribute("msg", "Registro Guardado");		
 	System.out.println("Asistente: " + asistente);		
-	return "redirect:/cursos/createAsistente/"+idCurso;   
+	return "redirect:/asistentes/createAsistente/"+idCurso;   
 }
 
 	
+	//Elimina un curso
+	@GetMapping("/EliminarAsistente/{id}/{idcurso}")
+	public String EliminarAsistente(@PathVariable("id") int idAsistente,@PathVariable("idcurso") int idCurso,RedirectAttributes attributes) {
+
+		//Curso curso = serviceCursos.buscarPorId(idCurso);	
+		
+		//System.out.println("Registro: "+ curso.getNombre());
+
+		
+		
+		  if(serviceAsistentes.eliminar(idAsistente)==true) {
+		  System.out.println("Borrado con exito");
+		  attributes.addFlashAttribute("msgborrado","Registro Borrado");
+		  
+		  }else { System.out.println("Error al borrar registro");
+		  attributes.addFlashAttribute("msgborrado", "Error al borrar registro");
+		  
+		  }
+		 
+		
+		return "redirect:/cursos/verAsistentes/"+idCurso;   
+		}
 	
 	//METODO PARA ASIGNAR DATOS DE MODELOS EN TODO EL CONTROLADOR
 	@ModelAttribute

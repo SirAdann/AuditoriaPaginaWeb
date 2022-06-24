@@ -71,9 +71,4 @@ try {
 		
 	}
 
-	@Override
-	public List<Asistente> buscarAsistentesPorCurso(Integer idCurso) {
-		// TODO Auto-generated method stub
-		return asistentesRepo.findByCurso(idCurso);
-	}
 }
