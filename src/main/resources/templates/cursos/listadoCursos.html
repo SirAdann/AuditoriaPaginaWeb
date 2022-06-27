@@ -70,7 +70,7 @@
                 <!--    <td th:text="${vacante.destacado==1 ? 'SI' : 'NO' }"></td>-->
                   <td>
                     <a th:href="@{/cursos/Editar/{id} (id=${curso.idCurso})}" class="btn btn-success" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                    <a th:href="@{/cursos/EliminarCurso/{id} (id=${curso.idCurso}) }"  onclick="return confirm('¿Estas seguro?')" class="btn btn-danger " role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
+                    <a th:href="@{/cursos/EliminarCurso/{id} (id=${curso.idCurso}) }"  onclick="return confirm('¿Estas seguro? Recuerda que los asistentes ligados al curso también se eliminarán.')" class="btn btn-danger " role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
                     <a th:href="@{/cursos/verAsistentes/{id} (id=${curso.idCurso})}" class="btn btn-primary" role="button" title="Visualizar asistentes"><i class="fa fa-eye" aria-hidden="true"></i></a>
                  
                   </td>
