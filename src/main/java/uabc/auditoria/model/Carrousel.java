@@ -7,16 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "carrousel")
+@Table(name = "carrouseles")
 public class Carrousel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idCarrousel;
-	private String imagen = "no_image.jpg";
-	private String url = "";
-	private Integer orden;
 	private Integer activo;
+	private String nombre;
 
 	public Integer getIdCarrousel() {
 		return idCarrousel;
@@ -26,31 +24,7 @@ public class Carrousel {
 		this.idCarrousel = idCarrousel;
 	}
 
-	public String getImagen() {
-		return imagen;
-	}
-
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
 	
-
-	public Integer getOrden() {
-		return orden;
-	}
-
-	public void setOrden(Integer orden) {
-		this.orden = orden;
-	}
 
 	public Integer getActivo() {
 		return activo;
@@ -60,10 +34,18 @@ public class Carrousel {
 		this.activo = activo;
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	@Override
 	public String toString() {
-		return "Carrousel [idCarrousel=" + idCarrousel + ", imagen=" + imagen + ", url=" + url + ", orden=" + orden
-				+ ", activo=" + activo + "]";
+		return "Carrousel [idCarrousel=" + idCarrousel + ", activo=" + activo + ", nombre=" + nombre + "]";
 	}
+
 
 }
