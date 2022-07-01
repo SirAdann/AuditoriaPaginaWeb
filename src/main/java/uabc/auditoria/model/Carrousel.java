@@ -1,9 +1,12 @@
 package uabc.auditoria.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,8 +16,10 @@ public class Carrousel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idCarrousel;
-	private Integer activo;
+	private Integer estatus;
 	private String nombre;
+
+
 
 	public Integer getIdCarrousel() {
 		return idCarrousel;
@@ -26,12 +31,13 @@ public class Carrousel {
 
 	
 
-	public Integer getActivo() {
-		return activo;
+
+	public Integer getEstatus() {
+		return estatus;
 	}
 
-	public void setActivo(Integer activo) {
-		this.activo = activo;
+	public void setEstatus(Integer estatus) {
+		this.estatus = estatus;
 	}
 
 	public String getNombre() {
@@ -44,7 +50,7 @@ public class Carrousel {
 
 	@Override
 	public String toString() {
-		return "Carrousel [idCarrousel=" + idCarrousel + ", activo=" + activo + ", nombre=" + nombre + "]";
+		return "Carrousel [idCarrousel=" + idCarrousel + ", estatus=" + estatus + ", nombre=" + nombre + "]";
 	}
 
 
