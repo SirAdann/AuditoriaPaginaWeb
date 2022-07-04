@@ -7,4 +7,7 @@ import uabc.auditoria.model.Carrousel;
 public interface ICarrouselService {	List<Carrousel> listarCarrouseles();
 
 
+void guardar(Carrousel carrousel);
+
+
 }

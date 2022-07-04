@@ -9,5 +9,4 @@ import uabc.auditoria.model.Carrousel;
 public interface CarrouselRepository extends JpaRepository<Carrousel, Integer> {
 	
 	//List<Carrousel> findAllByOrden();
-
 }

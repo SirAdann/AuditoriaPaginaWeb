@@ -21,4 +21,10 @@ public class CarrouselServiceJpa implements ICarrouselService {
 		return repoCarrousel.findAll();
 	}
 
+	@Override
+	public void guardar(Carrousel carrousel) {
+		repoCarrousel.save(carrousel);
+		
+	}
+
 }
